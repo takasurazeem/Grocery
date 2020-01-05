@@ -55,19 +55,21 @@ class CategoriesViewController: UIViewController {
         
         navigationItem.hidesSearchBarWhenScrolling = true
         
+        setupCard()
+        
         // IMPORTANT!!!
         visualEffectView.isUserInteractionEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCard()
     }
     
     @IBAction func btnAddCategoryPressed(_ sender: UIButton) {
         animateTransitionIfNeeded(state: nextState, duration: 0.9)
         // IMPORTANT!!!
         visualEffectView.isUserInteractionEnabled = true
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

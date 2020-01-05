@@ -133,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				76BC5A9623BFC3CA008842AE /* CategoriesViewController.swift */,
-				76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */,
 				76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */,
+				76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */,
 			);
 			path = "Categories ViewControlelr";
 			sourceTree = "<group>";
