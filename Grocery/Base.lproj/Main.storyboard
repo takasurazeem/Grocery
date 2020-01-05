@@ -113,6 +113,9 @@
                                     <constraint firstAttribute="width" constant="64" id="VuV-HY-7BG"/>
                                 </constraints>
                                 <state key="normal" image="add-icon"/>
+                                <connections>
+                                    <action selector="btnAddCategoryPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dko-9u-ldV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -216,12 +219,15 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-Cv-FkB">
-                                <rect key="frame" x="340" y="765" width="64" height="64"/>
+                                <rect key="frame" x="342" y="765" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="COV-Wd-gPB"/>
                                     <constraint firstAttribute="height" constant="64" id="JO7-rw-RmH"/>
                                 </constraints>
                                 <state key="normal" image="add-icon"/>
+                                <connections>
+                                    <action selector="btnAddItemPressed:" destination="fTn-7B-lD7" eventType="touchUpInside" id="tYU-Ok-IVj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,7 +236,7 @@
                             <constraint firstItem="GRS-67-kbh" firstAttribute="leading" secondItem="O3v-KA-p1g" secondAttribute="leading" constant="30" id="OHD-5E-8gB"/>
                             <constraint firstItem="GRS-67-kbh" firstAttribute="top" secondItem="O3v-KA-p1g" secondAttribute="top" constant="30" id="R3d-Q7-aF5"/>
                             <constraint firstItem="O3v-KA-p1g" firstAttribute="trailing" secondItem="GRS-67-kbh" secondAttribute="trailing" constant="20" id="pce-1h-Nem"/>
-                            <constraint firstItem="4XQ-Cv-FkB" firstAttribute="leading" secondItem="GRS-67-kbh" secondAttribute="trailing" constant="-54" id="rhl-Zz-5rS"/>
+                            <constraint firstItem="4XQ-Cv-FkB" firstAttribute="leading" secondItem="GRS-67-kbh" secondAttribute="trailing" constant="-52" id="rhl-Zz-5rS"/>
                             <constraint firstItem="4XQ-Cv-FkB" firstAttribute="top" secondItem="GRS-67-kbh" secondAttribute="bottom" constant="-57" id="zrv-bH-L0m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O3v-KA-p1g"/>
