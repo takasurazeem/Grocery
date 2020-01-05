@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate{
+extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         categories.count

@@ -21,6 +21,7 @@
 		76BC5AAF23BFD6BE008842AE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC5AAE23BFD6BE008842AE /* UIView+Extension.swift */; };
 		76C39BE223C20AB200E60E20 /* AddCategoryViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */; };
 		76C39BE423C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */; };
+		76C39BE723C20E4E00E60E20 /* ShoppingList+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE623C20E4E00E60E20 /* ShoppingList+TableView.swift */; };
 		76EEFA4E23C084E30099CC29 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EEFA4D23C084E30099CC29 /* ShoppingListViewController.swift */; };
 		76FC11C123C1D7890068833F /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FC11BF23C1D7880068833F /* CardViewController.xib */; };
 		76FC11C223C1D7890068833F /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC11C023C1D7890068833F /* AddCategoryViewController.swift */; };
@@ -43,6 +44,7 @@
 		76BC5AAE23BFD6BE008842AE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryViewController+UITableView.swift"; sourceTree = "<group>"; };
 		76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoriesViewController+AddCategoryCard.swift"; sourceTree = "<group>"; };
+		76C39BE623C20E4E00E60E20 /* ShoppingList+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingList+TableView.swift"; sourceTree = "<group>"; };
 		76EEFA4D23C084E30099CC29 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		76FC11BF23C1D7880068833F /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		76FC11C023C1D7890068833F /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
@@ -127,22 +129,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		76C39BE023C20A8900E60E20 /* CategoriesViewControlelr */ = {
+		76C39BE023C20A8900E60E20 /* Categories ViewControlelr */ = {
 			isa = PBXGroup;
 			children = (
 				76BC5A9623BFC3CA008842AE /* CategoriesViewController.swift */,
 				76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */,
 				76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */,
 			);
-			path = CategoriesViewControlelr;
+			path = "Categories ViewControlelr";
+			sourceTree = "<group>";
+		};
+		76C39BE523C20E2700E60E20 /* Shopping List ViewController  */ = {
+			isa = PBXGroup;
+			children = (
+				76EEFA4D23C084E30099CC29 /* ShoppingListViewController.swift */,
+				76C39BE623C20E4E00E60E20 /* ShoppingList+TableView.swift */,
+			);
+			path = "Shopping List ViewController ";
 			sourceTree = "<group>";
 		};
 		76EEFA4C23C084BD0099CC29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				76FC11C023C1D7890068833F /* AddCategoryViewController.swift */,
-				76C39BE023C20A8900E60E20 /* CategoriesViewControlelr */,
-				76EEFA4D23C084E30099CC29 /* ShoppingListViewController.swift */,
+				76C39BE023C20A8900E60E20 /* Categories ViewControlelr */,
+				76C39BE523C20E2700E60E20 /* Shopping List ViewController  */,
 				76B06B9A23C08BC80078D517 /* RootViewController.swift */,
 			);
 			path = Controller;
@@ -229,6 +240,7 @@
 				76BC5A9323BFC3CA008842AE /* AppDelegate.swift in Sources */,
 				76BC5A9523BFC3CA008842AE /* SceneDelegate.swift in Sources */,
 				76642C0723C1189100057FE9 /* GroceryItemCell.swift in Sources */,
+				76C39BE723C20E4E00E60E20 /* ShoppingList+TableView.swift in Sources */,
 				76B06B9B23C08BC80078D517 /* RootViewController.swift in Sources */,
 				76FC11C223C1D7890068833F /* AddCategoryViewController.swift in Sources */,
 				76642C0523C1174800057FE9 /* GroceryItems.swift in Sources */,
@@ -377,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DCJC4BZJQ;
 				INFOPLIST_FILE = Grocery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DCJC4BZJQ;
 				INFOPLIST_FILE = Grocery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

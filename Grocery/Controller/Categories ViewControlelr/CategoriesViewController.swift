@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class CategoriesViewController: UIViewController, UISearchResultsUpdating {
+class CategoriesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     

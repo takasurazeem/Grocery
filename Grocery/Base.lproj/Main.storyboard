@@ -145,107 +145,7 @@
         <scene sceneID="hSr-Uh-WL6">
             <objects>
                 <viewController id="fTn-7B-lD7" customClass="ShoppingListViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IYZ-d3-oZh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-67-kbh">
-                                <rect key="frame" x="30" y="118" width="364" height="704"/>
-                                <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroceryItemCell" id="Ag5-9I-S3P" customClass="GroceryItemCell" customModule="Grocery" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="364" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ag5-9I-S3P" id="0Eo-XR-Zut">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-Vh-003">
-                                                    <rect key="frame" x="8" y="8" width="348" height="44"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle-shape-outline" translatesAutoresizingMaskIntoConstraints="NO" id="oWB-2S-wf8">
-                                                            <rect key="frame" x="308" y="10" width="24" height="24"/>
-                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="24" id="0BU-Ws-fdh"/>
-                                                                <constraint firstAttribute="width" constant="24" id="UYt-Sr-u4r"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jN5-kB-VWv">
-                                                            <rect key="frame" x="16" y="10.5" width="85.5" height="23.5"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 ripe avos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-rf-Vkt">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="85.5" height="23.5"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="oWB-2S-wf8" firstAttribute="centerY" secondItem="5Wf-Vh-003" secondAttribute="centerY" id="97D-WX-Vp6"/>
-                                                        <constraint firstItem="jN5-kB-VWv" firstAttribute="centerY" secondItem="5Wf-Vh-003" secondAttribute="centerY" id="FPl-2d-iCf"/>
-                                                        <constraint firstAttribute="trailing" secondItem="oWB-2S-wf8" secondAttribute="trailing" constant="16" id="aoE-a6-y7T"/>
-                                                        <constraint firstItem="jN5-kB-VWv" firstAttribute="leading" secondItem="5Wf-Vh-003" secondAttribute="leading" constant="16" id="wKY-aO-KvJ"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5Wf-Vh-003" secondAttribute="trailing" constant="8" id="9hh-fM-FEi"/>
-                                                <constraint firstItem="5Wf-Vh-003" firstAttribute="leading" secondItem="0Eo-XR-Zut" secondAttribute="leading" constant="8" id="FdF-js-raK"/>
-                                                <constraint firstItem="5Wf-Vh-003" firstAttribute="top" secondItem="0Eo-XR-Zut" secondAttribute="top" constant="8" id="Ugn-lU-m8Y"/>
-                                                <constraint firstAttribute="bottom" secondItem="5Wf-Vh-003" secondAttribute="bottom" constant="8" id="YXX-li-8dT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="completedIcon" destination="oWB-2S-wf8" id="YyS-4b-2OZ"/>
-                                            <outlet property="itemName" destination="kZe-rf-Vkt" id="4FE-Tm-CMW"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="fTn-7B-lD7" id="rBU-Hc-6Go"/>
-                                    <outlet property="delegate" destination="fTn-7B-lD7" id="SOc-Sn-Fk8"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-Cv-FkB">
-                                <rect key="frame" x="342" y="765" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="COV-Wd-gPB"/>
-                                    <constraint firstAttribute="height" constant="64" id="JO7-rw-RmH"/>
-                                </constraints>
-                                <state key="normal" image="add-icon"/>
-                                <connections>
-                                    <action selector="btnAddItemPressed:" destination="fTn-7B-lD7" eventType="touchUpInside" id="tYU-Ok-IVj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="O3v-KA-p1g" firstAttribute="bottom" secondItem="GRS-67-kbh" secondAttribute="bottom" constant="40" id="9sW-D1-Isn"/>
-                            <constraint firstItem="GRS-67-kbh" firstAttribute="leading" secondItem="O3v-KA-p1g" secondAttribute="leading" constant="30" id="OHD-5E-8gB"/>
-                            <constraint firstItem="GRS-67-kbh" firstAttribute="top" secondItem="O3v-KA-p1g" secondAttribute="top" constant="30" id="R3d-Q7-aF5"/>
-                            <constraint firstItem="O3v-KA-p1g" firstAttribute="trailing" secondItem="GRS-67-kbh" secondAttribute="trailing" constant="20" id="pce-1h-Nem"/>
-                            <constraint firstItem="4XQ-Cv-FkB" firstAttribute="leading" secondItem="GRS-67-kbh" secondAttribute="trailing" constant="-52" id="rhl-Zz-5rS"/>
-                            <constraint firstItem="4XQ-Cv-FkB" firstAttribute="top" secondItem="GRS-67-kbh" secondAttribute="bottom" constant="-57" id="zrv-bH-L0m"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O3v-KA-p1g"/>
-                    </view>
                     <navigationItem key="navigationItem" id="FNR-G2-ofL"/>
-                    <connections>
-                        <outlet property="btnAddItem" destination="4XQ-Cv-FkB" id="nSp-6D-Y1G"/>
-                        <outlet property="tableView" destination="GRS-67-kbh" id="NVW-a3-nbl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwT-vO-d5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,6 +180,5 @@
         <image name="041-carrot" width="512" height="512"/>
         <image name="add-icon" width="256" height="256"/>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
-        <image name="circle-shape-outline" width="128" height="128"/>
     </resources>
 </document>

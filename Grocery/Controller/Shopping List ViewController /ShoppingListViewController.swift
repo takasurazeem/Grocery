@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class ShoppingListViewController: UIViewController {
     
     let items = GroceryItems.getGroceryItems()
     let cellIdentifier = "GroceryItemCell"
+    
+    let itemsDone = UIBarButtonItem(title: "3/10", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddItem: UIButton!
@@ -32,27 +34,16 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
         
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GroceryItemCell
         
-        cell.setup(item: items[indexPath.row])
-        
-        return cell
+        itemsDone.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .disabled)
+        itemsDone.isEnabled = false
+        self.navigationItem.rightBarButtonItem = itemsDone
     }
     
     @IBAction func btnAddItemPressed(_ sender: Any) {
