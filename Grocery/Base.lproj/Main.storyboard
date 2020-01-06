@@ -61,7 +61,7 @@
                                                             <rect key="frame" x="233" y="16" width="32" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="9g6-zQ-8GB"/>
-                                                                <constraint firstAttribute="width" constant="32" id="Fyh-eA-DTP"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Fyh-eA-DTP"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                             <color key="textColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,8 +72,9 @@
                                                     <constraints>
                                                         <constraint firstItem="Pc3-XB-qB5" firstAttribute="leading" secondItem="E6f-jQ-3iI" secondAttribute="trailing" constant="8" id="9oN-dg-wqa"/>
                                                         <constraint firstItem="E6f-jQ-3iI" firstAttribute="leading" secondItem="4w0-BK-bxg" secondAttribute="leading" constant="16" id="Bs1-ay-efh"/>
+                                                        <constraint firstItem="R6J-pQ-GnW" firstAttribute="leading" secondItem="adn-sj-w2G" secondAttribute="trailing" constant="69" id="GJ6-bl-FWU"/>
                                                         <constraint firstAttribute="trailing" secondItem="R6J-pQ-GnW" secondAttribute="trailing" constant="8" id="I56-XE-S9j"/>
-                                                        <constraint firstItem="adn-sj-w2G" firstAttribute="leading" secondItem="Pc3-XB-qB5" secondAttribute="trailing" constant="8" id="KeX-Fg-d3d"/>
+                                                        <constraint firstItem="adn-sj-w2G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pc3-XB-qB5" secondAttribute="trailing" constant="8" symbolic="YES" id="KeX-Fg-d3d"/>
                                                         <constraint firstItem="adn-sj-w2G" firstAttribute="centerY" secondItem="4w0-BK-bxg" secondAttribute="centerY" id="LHG-2U-Mm5"/>
                                                         <constraint firstItem="Pc3-XB-qB5" firstAttribute="centerY" secondItem="4w0-BK-bxg" secondAttribute="centerY" id="nns-J8-nda"/>
                                                         <constraint firstItem="R6J-pQ-GnW" firstAttribute="centerY" secondItem="4w0-BK-bxg" secondAttribute="centerY" id="tzX-w9-Ew6"/>
