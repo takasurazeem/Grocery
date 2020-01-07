@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761DB47D23C51D6100A185D4 /* images.json in Resources */ = {isa = PBXBuildFile; fileRef = 761DB47C23C51D6100A185D4 /* images.json */; };
+		761DB47F23C5266D00A185D4 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761DB47E23C5266D00A185D4 /* ColumnFlowLayout.swift */; };
 		76642C0523C1174800057FE9 /* GroceryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76642C0423C1174800057FE9 /* GroceryItems.swift */; };
 		76642C0723C1189100057FE9 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76642C0623C1189100057FE9 /* GroceryItemCell.swift */; };
 		76B06B9B23C08BC80078D517 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B9A23C08BC80078D517 /* RootViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761DB47C23C51D6100A185D4 /* images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = images.json; sourceTree = "<group>"; };
+		761DB47E23C5266D00A185D4 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76642C0423C1174800057FE9 /* GroceryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItems.swift; sourceTree = "<group>"; };
 		76642C0623C1189100057FE9 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		76B06B9A23C08BC80078D517 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -81,15 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		76B088F123C3CF3600A9B6DB /* Section Header */ = {
-			isa = PBXGroup;
-			children = (
-				76B088F223C3D48400A9B6DB /* All Icons Section Header */,
-				76B088F923C3D4C100A9B6DB /* Suggested Icons Section Header */,
-			);
-			path = "Section Header";
-			sourceTree = "<group>";
-		};
 		76B088F223C3D48400A9B6DB /* All Icons Section Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +122,7 @@
 		76BC5A9123BFC3CA008842AE /* Grocery */ = {
 			isa = PBXGroup;
 			children = (
+				761DB47C23C51D6100A185D4 /* images.json */,
 				76BC5AAD23BFD6A6008842AE /* Extensions */,
 				76BC5AA723BFD0F1008842AE /* Model */,
 				76BC5A9823BFC3CA008842AE /* Main.storyboard */,
@@ -161,6 +157,7 @@
 		76BC5AAC23BFD2EA008842AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				761DB47E23C5266D00A185D4 /* ColumnFlowLayout.swift */,
 				76F2807E23C3C65600F4AE87 /* TableView Cells */,
 				76FC11BF23C1D7880068833F /* CardViewController.xib */,
 				76F2808023C3C6EC00F4AE87 /* CollectionView Cells */,
@@ -228,6 +225,7 @@
 		76F2807F23C3C6E000F4AE87 /* Suggested Icons Cell */ = {
 			isa = PBXGroup;
 			children = (
+				76B088F923C3D4C100A9B6DB /* Suggested Icons Section Header */,
 				76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */,
 				76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */,
 			);
@@ -246,9 +244,9 @@
 		76F2808523C3C72E00F4AE87 /* All Icons Cell */ = {
 			isa = PBXGroup;
 			children = (
+				76B088F223C3D48400A9B6DB /* All Icons Section Header */,
 				76F2808123C3C71800F4AE87 /* AllIconsCell.swift */,
 				76F2808223C3C71800F4AE87 /* AllIconsCell.xib */,
-				76B088F123C3CF3600A9B6DB /* Section Header */,
 			);
 			path = "All Icons Cell";
 			sourceTree = "<group>";
@@ -317,6 +315,7 @@
 				76BC5A9A23BFC3CA008842AE /* Main.storyboard in Resources */,
 				76F2808423C3C71800F4AE87 /* AllIconsCell.xib in Resources */,
 				76B088F823C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.xib in Resources */,
+				761DB47D23C51D6100A185D4 /* images.json in Resources */,
 				76F2807D23C3C64300F4AE87 /* SuggestedIconsCell.xib in Resources */,
 				76B088F023C3CF3200A9B6DB /* AllIconsSectionHeader.xib in Resources */,
 			);
@@ -330,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76F2807C23C3C64300F4AE87 /* SuggestedIconsCell.swift in Sources */,
+				761DB47F23C5266D00A185D4 /* ColumnFlowLayout.swift in Sources */,
 				76C39BE423C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift in Sources */,
 				76F2807923C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift in Sources */,
 				76BC5AAF23BFD6BE008842AE /* UIView+Extension.swift in Sources */,

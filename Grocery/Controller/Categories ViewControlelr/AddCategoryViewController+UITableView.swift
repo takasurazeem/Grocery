@@ -1,10 +1,9 @@
-//
 //  AddCategoryViewController+UITableView.swift
 //  Grocery
 //
 //  Created by Takasur Azeem on 05/01/2020.
 //  Copyright © 2020 Takasur Azeem. All rights reserved.
-//
+
 
 import UIKit
 

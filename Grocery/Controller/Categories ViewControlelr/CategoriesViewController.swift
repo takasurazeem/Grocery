@@ -26,7 +26,10 @@ class CategoriesViewController: UIViewController {
     var cardViewController: AddCategoryViewController!
     var visualEffectView : UIVisualEffectView!
     
-    let cardHeight: CGFloat = 600
+    lazy var cardHeight: CGFloat = {
+        return self.view.frame.height * 0.85
+    }()
+    
     let cardHandlerAreaHeight: CGFloat = 65
     
     var cardVisible = false
@@ -63,6 +66,27 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func loadImagesFromAlbum(folderName:String) -> [String] {
+        
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        var theItems = [String]()
+        if let dirPath = paths.first
+        {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(folderName)
+            
+            do {
+                theItems = try FileManager.default.contentsOfDirectory(atPath: imageURL.path)
+                return theItems
+            } catch let error as NSError {
+                print(error.localizedDescription)
+                return theItems
+            }
+        }
+        return theItems
     }
     
     @IBAction func btnAddCategoryPressed(_ sender: UIButton) {

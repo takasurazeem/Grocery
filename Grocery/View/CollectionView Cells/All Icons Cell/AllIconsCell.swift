@@ -17,7 +17,7 @@ class AllIconsCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func setup(icon: UIImage) {
-        image.image = icon
+    func setup(imageWith name: String) {
+        image.image = UIImage(named: name)
     }
 }

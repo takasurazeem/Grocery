@@ -14,6 +14,23 @@ struct GroceryCategory {
     let image: UIImage
     let itemsCount: Int
     
+    static func getFoodIcons() -> Images? {
+        
+        guard let fileURL = Bundle.main.url(forResource: "images", withExtension: "json") else {
+            print("couldn't find the file")
+            return nil
+        }
+        do {
+            let content = try Data(contentsOf: fileURL)
+            let decoder = JSONDecoder()
+            let images = try! decoder.decode(Images.self, from: content)
+            return images
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
     static func getDummyCategories() -> [GroceryCategory] {
         return [
         .init(name: "Bakery", image: #imageLiteral(resourceName: "046-bread-1.png"), itemsCount: 2),
@@ -28,4 +45,8 @@ struct GroceryCategory {
         .init(name: "Cookies", image: #imageLiteral(resourceName: "037-cookie"), itemsCount: 2)
         ]
     }
+}
+
+struct Images: Codable {
+    let foods: [String]
 }

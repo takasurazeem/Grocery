@@ -11,19 +11,19 @@ import UIKit
 extension AddCategoryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == allIconsCollectionView {
-            return allIcons.count
+        if collectionView == collectionView.viewWithTag(1001) {
+            return allIcons?.foods.count ?? 0
         } else {
             return suggestedIcons.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == allIconsCollectionView {
+        if collectionView == collectionView.viewWithTag(1001) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
             
-            let image = allIcons[indexPath.row]
-            cell.setup(icon: image)
+            let imageName = allIcons?.foods[indexPath.row]
+            cell.setup(imageWith: imageName ?? "")
             
             return cell
         }
@@ -37,10 +37,9 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if (kind == UICollectionView.elementKindSectionHeader) {
-            if collectionView == allIconsCollectionView {
+            if collectionView == collectionView.viewWithTag(1001){
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllIconsSectionHeader", for: indexPath) as! AllIconsSectionHeader
                 headerView.setup(label: "All Icons")
-                
                 return headerView
             } else {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SuggestedIconsSectionHeader", for: indexPath) as! SuggestedIconsSectionHeader

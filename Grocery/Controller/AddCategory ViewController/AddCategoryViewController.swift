@@ -10,9 +10,9 @@ import UIKit
 
 class AddCategoryViewController: UIViewController {
     
-    let allIcons = [#imageLiteral(resourceName: "001-yogurt.png"),#imageLiteral(resourceName: "002-watermelon.png"),#imageLiteral(resourceName: "003-water-bottle.png"),#imageLiteral(resourceName: "004-tomato.png"),#imageLiteral(resourceName: "005-tea-bag.png"),#imageLiteral(resourceName: "006-sparkling-drink.png"),#imageLiteral(resourceName: "007-spaguetti.png"),#imageLiteral(resourceName: "008-cream.png"),#imageLiteral(resourceName: "009-snack.png"),#imageLiteral(resourceName: "011-seasoning.png"),#imageLiteral(resourceName: "012-sauce.png")]
+    var allIcons = GroceryCategory.getFoodIcons()
     
-    let suggestedIcons = [#imageLiteral(resourceName: "001-yogurt.png"),#imageLiteral(resourceName: "002-watermelon.png"),#imageLiteral(resourceName: "003-water-bottle.png"),#imageLiteral(resourceName: "004-tomato.png"),#imageLiteral(resourceName: "005-tea-bag.png"),#imageLiteral(resourceName: "006-sparkling-drink.png"),#imageLiteral(resourceName: "007-spaguetti.png"),#imageLiteral(resourceName: "008-cream.png"),#imageLiteral(resourceName: "009-snack.png"),#imageLiteral(resourceName: "011-seasoning.png"),#imageLiteral(resourceName: "012-sauce.png")]
+    var suggestedIcons : [UIImage] = []
     
     @IBOutlet weak var handleArea: UIView!
     
@@ -24,8 +24,8 @@ class AddCategoryViewController: UIViewController {
     }
     @IBOutlet weak var suggestedIconsCollectionView: UICollectionView! {
         didSet {
-            allIconsCollectionView.delegate = self
-            allIconsCollectionView.dataSource = self
+            suggestedIconsCollectionView.delegate = self
+            suggestedIconsCollectionView.dataSource = self
         }
     }
     @IBOutlet weak var suggestionHeightConstraint: NSLayoutConstraint!
@@ -45,11 +45,42 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allIconsCollectionView.register(UINib(nibName: "AllIconsCell", bundle: nil), forCellWithReuseIdentifier: "AllIconsCell")
-        allIconsCollectionView.register(UINib(nibName: "AllIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AllIconsSectionHeader")
+//        let columnLayout = ColumnFlowLayout(
+//            cellsPerRow: 5,
+//            minimumInteritemSpacing: 10,
+//            minimumLineSpacing: 10,
+//            sectionInset: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+//        )
         
+        // MARK:- Register All Icons Cells
+        allIconsCollectionView.register(UINib(nibName: "AllIconsCell", bundle: nil), forCellWithReuseIdentifier: "AllIconsCell")
+        allIconsCollectionView.register(UINib(nibName: "AllIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind:
+            UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AllIconsSectionHeader")
+//        allIconsCollectionView.collectionViewLayout = columnLayout
+        // MARK:- Register Suggested Icons Cells
         suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsCell", bundle: nil), forCellWithReuseIdentifier: "suggestedIconsCell")
         suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SuggestedIconsSectionHeader")
+        
+        
+        /*
+         let fileManager = FileManager.default
+         let bundleURL = Bundle.main.bundleURL
+         let assetURL = bundleURL.appendingPathComponent("Foods.bundle")
+         do {
+         let contents = try fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
+         
+         for item in contents
+         {
+         print(item.lastPathComponent)
+         if let image = UIImage(contentsOfFile: item.path) {
+         allIcons.append(image)
+         }
+         }
+         }
+         catch let error as NSError {
+         print(error)
+         }
+         suggestedIcons = allIcons
+         */
     }
-    
 }
