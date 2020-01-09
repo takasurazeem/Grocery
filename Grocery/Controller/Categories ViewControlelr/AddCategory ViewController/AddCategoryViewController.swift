@@ -11,10 +11,8 @@ import UIKit
 class AddCategoryViewController: UIViewController {
     
     var allIcons = GroceryCategory.getFoodIcons()
-    
     var suggestedIcons : [UIImage] = []
     
-    @IBOutlet weak var handleArea: UIView!
     
     @IBOutlet weak var itemNameTextField: UITextField! {
         didSet {
@@ -38,8 +36,6 @@ class AddCategoryViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        itemNameTextField.attributedPlaceholder =
-            NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(white: 1, alpha: 0.5)])
         suggestionHeightConstraint.constant = 0
     }
     

@@ -18,28 +18,6 @@ class CategoriesViewController: UIViewController {
     let categories = GroceryCategory.getDummyCategories()
     let cellIdentifier = "Cell"
     
-    enum CardState {
-        case expanded
-        case collapsed
-    }
-    
-    var cardViewController: AddCategoryViewController!
-    var visualEffectView : UIVisualEffectView!
-    
-    lazy var cardHeight: CGFloat = {
-        return self.view.frame.height * 0.85
-    }()
-    
-    let cardHandlerAreaHeight: CGFloat = 65
-    
-    var cardVisible = false
-    var nextState: CardState {
-        return cardVisible ? .collapsed : .expanded
-    }
-    
-    var runningAnimations = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterupted: CGFloat = 0
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,22 +35,10 @@ class CategoriesViewController: UIViewController {
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
-        
-//        setupCard()
-        
-        // IMPORTANT!!!
-//        visualEffectView.isUserInteractionEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func btnAddCategoryPressed(_ sender: UIButton) {
-//        animateTransitionIfNeeded(state: nextState, duration: 0.9)
-        // IMPORTANT!!!
-//        visualEffectView.isUserInteractionEnabled = true
-        self.present(AddCategoryViewController(nibName: "CardViewController", bundle: nil), animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
