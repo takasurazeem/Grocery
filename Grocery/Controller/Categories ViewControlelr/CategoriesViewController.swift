@@ -58,42 +58,21 @@ class CategoriesViewController: UIViewController {
         
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        setupCard()
+//        setupCard()
         
         // IMPORTANT!!!
-        visualEffectView.isUserInteractionEnabled = false
+//        visualEffectView.isUserInteractionEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func loadImagesFromAlbum(folderName:String) -> [String] {
-        
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
-        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        var theItems = [String]()
-        if let dirPath = paths.first
-        {
-            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(folderName)
-            
-            do {
-                theItems = try FileManager.default.contentsOfDirectory(atPath: imageURL.path)
-                return theItems
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                return theItems
-            }
-        }
-        return theItems
-    }
-    
     @IBAction func btnAddCategoryPressed(_ sender: UIButton) {
-        animateTransitionIfNeeded(state: nextState, duration: 0.9)
+//        animateTransitionIfNeeded(state: nextState, duration: 0.9)
         // IMPORTANT!!!
-        visualEffectView.isUserInteractionEnabled = true
-        
+//        visualEffectView.isUserInteractionEnabled = true
+        self.present(AddCategoryViewController(nibName: "CardViewController", bundle: nil), animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
