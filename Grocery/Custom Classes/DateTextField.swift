@@ -11,7 +11,7 @@ import UIKit
 class DateTextField: UITextField {
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if action != "copy:" {
+        if action != #selector(UIResponderStandardEditActions.copy(_:)) {
             return false
         }
         return super.canPerformAction(action, withSender: sender)

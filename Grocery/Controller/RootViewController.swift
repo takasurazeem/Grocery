@@ -15,8 +15,6 @@ class RootViewController: UINavigationController {
         let backImage = UIImage(systemName: "arrow.left")
         self.navigationBar.backIndicatorImage = backImage
         self.navigationBar.backIndicatorTransitionMaskImage = backImage
-        
-        
     }
     
     override func viewDidLoad() {

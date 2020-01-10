@@ -11,24 +11,45 @@ import UIKit
 class ShoppingListsCell: UITableViewCell {
 
     @IBOutlet weak var listName: UILabel!
-    @IBOutlet weak var dateCreated: UILabel!
+    @IBOutlet weak var dateRemind: UILabel!
     @IBOutlet weak var categoriesInList: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
+    @IBOutlet weak var createdOnLabel: UILabel!
+    
+    
+    fileprivate var reminderSwitch = false {
+        didSet {
+            if reminderSwitch {
+                reminderButton.setImage(UIImage(systemName: "bell.circle.fill"), for: .normal)
+            } else {
+                reminderButton.setImage(UIImage(systemName: "bell.circle"), for: .normal)
+            }
+        }
+    }
     
     func setup(with item: ShoppingList) {
         listName.text = item.name
-        dateCreated.text = item.dateAdded.toString(style: .medium)
+        dateRemind.text = item.dateAdded.toString(dateFormat: "dd/MM/yyyy h:mm a")
         if item.categoriesInList > 0 {
             categoriesInList.text = "\(item.categoriesInList)"
+            categoriesInList.alpha = 1
         } else {
-            categoriesInList.isHidden = true
+            categoriesInList.alpha = 0
+//            categoriesInList.isHidden = true
         }
-        
+        reminderSwitch = item.reminderSwitch
     }
+    
+    @IBAction func switchReminder(_ sender: UIButton) {
+        reminderSwitch = !reminderSwitch
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        categoriesInList.layer.backgroundColor  = UIColor.white.cgColor
+        categoriesInList.layer.cornerRadius = categoriesInList.frame.height / 3
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
