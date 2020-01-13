@@ -32,5 +32,10 @@ class AddShoppingListViewController: UIViewController {
         sender.resignFirstResponder()
     }
     
+    @IBAction func saveShoppingList(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            // TODO: call delegate to add to list
+        }
+    }
     
 }

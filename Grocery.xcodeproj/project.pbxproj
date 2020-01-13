@@ -18,6 +18,7 @@
 		761EE53F23C749D000A48DA1 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EE53E23C749D000A48DA1 /* DateTextField.swift */; };
 		76642C0523C1174800057FE9 /* GroceryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76642C0423C1174800057FE9 /* GroceryItems.swift */; };
 		76642C0723C1189100057FE9 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76642C0623C1189100057FE9 /* GroceryItemCell.swift */; };
+		76697AA623CC4847006728C5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76697AA423CC4847006728C5 /* Model.xcdatamodeld */; };
 		769B632623C72BD000970F6D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B632523C72BD000970F6D /* Date+Extension.swift */; };
 		769B632923C733FF00970F6D /* AddShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B632823C733FF00970F6D /* AddShoppingListViewController.swift */; };
 		76B06B9B23C08BC80078D517 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B9A23C08BC80078D517 /* RootViewController.swift */; };
@@ -59,6 +60,7 @@
 		761EE53E23C749D000A48DA1 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		76642C0423C1174800057FE9 /* GroceryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItems.swift; sourceTree = "<group>"; };
 		76642C0623C1189100057FE9 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
+		76697AA523CC4847006728C5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		769B632523C72BD000970F6D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		769B632823C733FF00970F6D /* AddShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListViewController.swift; sourceTree = "<group>"; };
 		76B06B9A23C08BC80078D517 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		76BC5A8623BFC3CA008842AE = {
 			isa = PBXGroup;
 			children = (
+				76697AA423CC4847006728C5 /* Model.xcdatamodeld */,
 				76BC5A9123BFC3CA008842AE /* Grocery */,
 				76BC5A9023BFC3CA008842AE /* Products */,
 			);
@@ -395,6 +398,7 @@
 				76BC5A9523BFC3CA008842AE /* SceneDelegate.swift in Sources */,
 				7609EC0B23C725000013A942 /* ShoppingLists+TableViewDelegateDataSource.swift in Sources */,
 				76B088EF23C3CF3200A9B6DB /* AllIconsSectionHeader.swift in Sources */,
+				76697AA623CC4847006728C5 /* Model.xcdatamodeld in Sources */,
 				76B088F723C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.swift in Sources */,
 				76642C0723C1189100057FE9 /* GroceryItemCell.swift in Sources */,
 				76C39BE723C20E4E00E60E20 /* ShoppingList+TableView.swift in Sources */,
@@ -602,6 +606,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76697AA423CC4847006728C5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76697AA523CC4847006728C5 /* Model.xcdatamodel */,
+			);
+			currentVersion = 76697AA523CC4847006728C5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 76BC5A8723BFC3CA008842AE /* Project object */;
 }
