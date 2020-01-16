@@ -16,7 +16,7 @@ class GroceryItemCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func setup(item: GroceryItems) {
+    func setup(item: _GroceryItems) {
         itemName.text = item.quantity == 1 ? item.name : "\(item.quantity) \(item.name)"
         completedIcon.image = UIImage(named: "circle-shape-outline")!
         if item.completed {

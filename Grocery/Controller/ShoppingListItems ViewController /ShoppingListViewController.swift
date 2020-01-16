@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ShoppingListViewController: UIViewController {
     
-    let items = GroceryItems.getGroceryItems()
+    let items = _GroceryItems.getGroceryItems()
     let cellIdentifier = "GroceryItemCell"
     
     let itemsDone = UIBarButtonItem(title: "3/10", style: .plain, target: nil, action: nil)
+    var dataController: DataController!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddItem: UIButton!

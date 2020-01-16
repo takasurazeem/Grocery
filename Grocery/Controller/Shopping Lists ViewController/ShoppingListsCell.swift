@@ -20,24 +20,25 @@ class ShoppingListsCell: UITableViewCell {
     fileprivate var reminderSwitch = false {
         didSet {
             if reminderSwitch {
-                reminderButton.setImage(UIImage(systemName: "bell.circle.fill"), for: .normal)
+                reminderButton.setImage(UIImage(systemName: "bell.fill"), for: .normal)
             } else {
-                reminderButton.setImage(UIImage(systemName: "bell.circle"), for: .normal)
+                reminderButton.setImage(UIImage(systemName: "bell.slash.fill"), for: .normal)
             }
         }
     }
     
     func setup(with item: ShoppingList) {
         listName.text = item.name
-        dateRemind.text = item.dateAdded.toString(dateFormat: "dd/MM/yyyy h:mm a")
-        if item.categoriesInList > 0 {
-            categoriesInList.text = "\(item.categoriesInList)"
+        dateRemind.text = item.remindOn?.toString(dateFormat: dateFormat)
+        if let categoriesCount = item.categories?.count, categoriesCount > 0 {
+            categoriesInList.text = "\(categoriesCount)"
             categoriesInList.alpha = 1
         } else {
             categoriesInList.alpha = 0
 //            categoriesInList.isHidden = true
         }
         reminderSwitch = item.reminderSwitch
+        createdOnLabel.text = item.creationDate?.toString(dateFormat: dateFormat)
     }
     
     @IBAction func switchReminder(_ sender: UIButton) {

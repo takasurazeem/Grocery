@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct GroceryCategory {
+struct _GroceryCategory {
     let name: String
     let image: UIImage
     let itemsCount: Int
@@ -31,7 +31,7 @@ struct GroceryCategory {
         return nil
     }
     
-    static func getDummyCategories() -> [GroceryCategory] {
+    static func getDummyCategories() -> [_GroceryCategory] {
         return [
         .init(name: "Bakery", image: #imageLiteral(resourceName: "046-bread-1.png"), itemsCount: 2),
         .init(name: "Fruits and Vegetables", image: #imageLiteral(resourceName: "041-carrot"), itemsCount: 10),
@@ -48,5 +48,6 @@ struct GroceryCategory {
 }
 
 struct Images: Codable {
-    let foods: [String]
+    let food: [String]
+    let hardware: [String]
 }

@@ -23,7 +23,7 @@ class GroceryCategoryCell: UITableViewCell {
         remainingCount.layer.cornerRadius = remainingCount.frame.height / 3
     }
     
-    func setup(item: GroceryCategory) {
+    func setup(item: _GroceryCategory) {
         itemImage.image = item.image
         itemName.text = item.name
         itemName.textColor = .white

@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct GroceryItems {
+struct _GroceryItems {
     let name: String
     let quantity: Int
     let completed: Bool
     
-    static func getGroceryItems() -> [GroceryItems] {
+    static func getGroceryItems() -> [_GroceryItems] {
         return [
             .init(name: "ripe avos", quantity: 2, completed: false),
             .init(name: "Apples", quantity: 1, completed: true),

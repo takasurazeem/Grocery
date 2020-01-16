@@ -1,0 +1,22 @@
+{
+    "food": [
+        "001-yogurt.png",
+        "002-watermelon.png",
+        "003-water-bottle.png",
+        "004-tomato.png",
+        "005-tea-bag.png",
+        "006-sparkling-drink.png",
+        "007-spaguetti.png",
+        "008-cream.png"
+    ],
+    "hardware": [
+        "012-sauce.png",
+        "013-rice.png",
+        "014-peas.png",
+        "016-chicken-leg.png",
+        "017-pizza.png",
+        "018-pineapple.png",
+        "019-pepper.png",
+        "020-pasta.png"
+    ]
+}

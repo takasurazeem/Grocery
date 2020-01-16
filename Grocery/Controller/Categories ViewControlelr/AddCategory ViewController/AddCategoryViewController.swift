@@ -10,7 +10,10 @@ import UIKit
 
 class AddCategoryViewController: UIViewController {
     
-    var allIcons = GroceryCategory.getFoodIcons()
+    let allIcons = _GroceryCategory.getFoodIcons()!
+    let sectionTitles = ["Foods", "Hardwares"]
+    var icons: [Int: [String]] = [:]
+    
     var suggestedIcons : [UIImage] = []
     
     
@@ -37,6 +40,7 @@ class AddCategoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         suggestionHeightConstraint.constant = 0
+        icons = [0 : allIcons.food, 1 : allIcons.hardware]
     }
     
     override func viewDidLoad() {
@@ -57,26 +61,5 @@ class AddCategoryViewController: UIViewController {
         suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsCell", bundle: nil), forCellWithReuseIdentifier: "suggestedIconsCell")
         suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SuggestedIconsSectionHeader")
         
-        
-        /*
-         let fileManager = FileManager.default
-         let bundleURL = Bundle.main.bundleURL
-         let assetURL = bundleURL.appendingPathComponent("Foods.bundle")
-         do {
-         let contents = try fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
-         
-         for item in contents
-         {
-         print(item.lastPathComponent)
-         if let image = UIImage(contentsOfFile: item.path) {
-         allIcons.append(image)
-         }
-         }
-         }
-         catch let error as NSError {
-         print(error)
-         }
-         suggestedIcons = allIcons
-         */
     }
 }

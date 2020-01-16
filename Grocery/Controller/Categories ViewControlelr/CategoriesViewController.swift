@@ -15,7 +15,8 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    let categories = GroceryCategory.getDummyCategories()
+    
+    let categories = _GroceryCategory.getDummyCategories()
     let cellIdentifier = "Cell"
     
     

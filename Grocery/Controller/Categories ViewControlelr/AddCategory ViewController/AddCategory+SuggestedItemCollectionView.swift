@@ -10,9 +10,13 @@ import UIKit
 
 extension AddCategoryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        icons.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView.viewWithTag(1001) {
-            return allIcons?.foods.count ?? 0
+            return icons[section]?.count ?? 0
         } else {
             return suggestedIcons.count
         }
@@ -22,8 +26,8 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
         if collectionView == collectionView.viewWithTag(1001) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
             
-            let imageName = allIcons?.foods[indexPath.row]
-            cell.setup(imageWith: imageName ?? "")
+            let imageName = icons[indexPath.section]![indexPath.row]
+            cell.setup(imageWith: imageName)
             
             return cell
         }
@@ -39,7 +43,7 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
         if (kind == UICollectionView.elementKindSectionHeader) {
             if collectionView == collectionView.viewWithTag(1001){
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllIconsSectionHeader", for: indexPath) as! AllIconsSectionHeader
-                headerView.setup(label: "All Icons")
+                headerView.setup(label: sectionTitles[indexPath.section])
                 return headerView
             } else {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SuggestedIconsSectionHeader", for: indexPath) as! SuggestedIconsSectionHeader

@@ -36,6 +36,6 @@ extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate,
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO:- Complete it
+        // TODO: Complete it
     }
 }
