@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="942" y="110"/>
         </scene>
-        <!--Shopping List View Controller-->
+        <!--Grocery Item View Controller-->
         <scene sceneID="hSr-Uh-WL6">
             <objects>
-                <viewController id="fTn-7B-lD7" customClass="ShoppingListViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fTn-7B-lD7" customClass="GroceryItemViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nWl-XV-FGZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,7 @@
         <!--Shopping Lists-->
         <scene sceneID="tc6-2V-EE1">
             <objects>
-                <viewController id="iIu-jl-qQ1" customClass="ShoppingListsViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iIu-jl-qQ1" customClass="GroceryListViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I29-IK-Brm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +292,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShoppingListsCell" id="g7b-wL-klU" customClass="ShoppingListsCell" customModule="Grocery" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShoppingListsCell" id="g7b-wL-klU" customClass="GroceryListCell" customModule="Grocery" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g7b-wL-klU" id="tDg-AM-rzT">

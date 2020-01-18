@@ -8,16 +8,16 @@
 
 import UIKit
 
-extension ShoppingListsViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+extension GroceryListViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ShoppingListsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GroceryListCell
         
-        cell.setup(with: lists[indexPath.row])
+        cell.setup(with: fetchedResultsController.object(at: indexPath))
         
         return cell
     }
@@ -30,9 +30,9 @@ extension ShoppingListsViewController : UITableViewDelegate, UITableViewDataSour
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completion) in
             guard let self = self else { return }
-            self.dataController.viewContext.delete(self.lists[indexPath.row])
-            self.lists.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let listToDelte = self.fetchedResultsController.object(at: indexPath)
+            self.dataController.viewContext.delete(listToDelte)
             do {
                 try self.dataController.viewContext.save()
             } catch let error {
@@ -59,9 +59,9 @@ extension ShoppingListsViewController : UITableViewDelegate, UITableViewDataSour
         let updateAction = UIContextualAction(style: .normal, title: "Update") { [weak self] (action, view, completion) in
             guard let self = self else { return }
             guard let updateShoppingList = self.storyboard?.instantiateViewController(identifier: "AddShoppingListViewController") as? AddShoppingListViewController else { return }
-            updateShoppingList.shoppingList = self.lists[indexPath.row]
+            let listToUpdate = self.fetchedResultsController.object(at: indexPath)
+            updateShoppingList.shoppingList = listToUpdate
             updateShoppingList.dataController = self.dataController
-            updateShoppingList.delegate = self
             updateShoppingList.indexPath = indexPath
             self.present(updateShoppingList, animated: true) {
                 completion(true)
@@ -79,8 +79,7 @@ extension ShoppingListsViewController : UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let list = self.lists[indexPath.row]
-        
+        let list = self.fetchedResultsController.object(at: indexPath)
         let alertAction = UIContextualAction(style: .normal, title: "") { [weak self] (action, view, completion) in
             list.reminderSwitch = !list.reminderSwitch
             guard let self = self else { return }
@@ -111,7 +110,6 @@ extension ShoppingListsViewController : UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "AddShoppingList" {
             guard let destination = segue.destination as? AddShoppingListViewController else { return  }
             destination.dataController = dataController
-            destination.delegate = self
         }
     }
 }

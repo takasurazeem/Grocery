@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ShoppingListViewController: UIViewController {
+class GroceryItemViewController: UIViewController {
     
     let items = _GroceryItems.getGroceryItems()
     let cellIdentifier = "GroceryItemCell"

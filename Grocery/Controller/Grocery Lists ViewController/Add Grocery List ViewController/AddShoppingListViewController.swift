@@ -25,7 +25,6 @@ class AddShoppingListViewController: UIViewController {
     var datePicker : UIDatePicker!
     let dateFormat = "dd/MM/yyyy h:mm a"
     
-    var delegate : AddShoppingListProtocol?
     var shoppingList: ShoppingList?
     var indexPath: IndexPath?
     
@@ -58,7 +57,6 @@ class AddShoppingListViewController: UIViewController {
         let shoppingList = ShoppingList(context: context)
         shoppingList.id = Int64(id)
         shoppingList.name = listName.text
-//        shoppingList.creationDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         if let dateString = remindOn.text {
@@ -73,14 +71,12 @@ class AddShoppingListViewController: UIViewController {
         self.dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.defaults.set(self.id + 1, forKey: self.idKey)
-            self.delegate?.add(list: shoppingList)
         }
     }
     
     @IBAction func updateList(_ sender: UIButton) {
         let context = dataController.viewContext
         shoppingList?.name = listName.text
-//        shoppingList?.creationDate = shoppingList?.creationDate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         if let dateString = remindOn.text {
@@ -92,9 +88,6 @@ class AddShoppingListViewController: UIViewController {
         } catch let error {
             debugPrint(error)
         }
-        self.dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.delegate?.update(at: self.indexPath)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

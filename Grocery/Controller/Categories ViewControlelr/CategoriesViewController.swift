@@ -46,7 +46,7 @@ class CategoriesViewController: UIViewController {
         if segue.identifier == "ShoppingList" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let category = categories[indexPath.row]
-            guard let destination = segue.destination as? ShoppingListViewController else { return }
+            guard let destination = segue.destination as? GroceryItemViewController else { return }
             destination.title = category.name
         }
     }

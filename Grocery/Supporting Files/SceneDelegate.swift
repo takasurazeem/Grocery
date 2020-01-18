@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //TODO: A nice loading bar to indicate data loading.
         }
         let navigationController = window?.rootViewController as! UINavigationController
-        let shoppingListViewController = navigationController.topViewController as! ShoppingListsViewController
+        let shoppingListViewController = navigationController.topViewController as! GroceryListViewController
         shoppingListViewController.dataController = dataController
         guard let _ = (scene as? UIWindowScene) else { return }
     }

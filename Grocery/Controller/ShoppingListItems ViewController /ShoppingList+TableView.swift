@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ShoppingListViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         

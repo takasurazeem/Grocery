@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListsCell: UITableViewCell {
+class GroceryListCell: UITableViewCell {
 
     @IBOutlet weak var listName: UILabel!
     @IBOutlet weak var dateRemind: UILabel!
