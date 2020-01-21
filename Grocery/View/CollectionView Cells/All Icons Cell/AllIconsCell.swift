@@ -21,5 +21,14 @@ class AllIconsCell: UICollectionViewCell {
         image.image = UIImage(named: name)
     }
     
-    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.layer.borderWidth = 2
+                self.layer.borderColor = UIColor.init(white: 1, alpha: 0.5).cgColor
+            } else {
+                self.backgroundColor = .clear
+            }
+        }
+    }
 }

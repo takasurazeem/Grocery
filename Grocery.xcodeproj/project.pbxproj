@@ -29,7 +29,6 @@
 		769B632923C733FF00970F6D /* AddShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B632823C733FF00970F6D /* AddShoppingListViewController.swift */; };
 		76B06B9B23C08BC80078D517 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B9A23C08BC80078D517 /* RootViewController.swift */; };
 		76B088EF23C3CF3200A9B6DB /* AllIconsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B088ED23C3CF3200A9B6DB /* AllIconsSectionHeader.swift */; };
-		76B088F023C3CF3200A9B6DB /* AllIconsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B088EE23C3CF3200A9B6DB /* AllIconsSectionHeader.xib */; };
 		76B088F723C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B088F523C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.swift */; };
 		76B088F823C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B088F623C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.xib */; };
 		76BC5A9323BFC3CA008842AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC5A9223BFC3CA008842AE /* AppDelegate.swift */; };
@@ -47,9 +46,7 @@
 		76F2807723C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807623C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift */; };
 		76F2807923C39CE300F4AE87 /* Categories+TextViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807823C39CE300F4AE87 /* Categories+TextViewFunctions.swift */; };
 		76F2807C23C3C64300F4AE87 /* SuggestedIconsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */; };
-		76F2807D23C3C64300F4AE87 /* SuggestedIconsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */; };
 		76F2808323C3C71800F4AE87 /* AllIconsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2808123C3C71800F4AE87 /* AllIconsCell.swift */; };
-		76F2808423C3C71800F4AE87 /* AllIconsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76F2808223C3C71800F4AE87 /* AllIconsCell.xib */; };
 		76FC11C223C1D7890068833F /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC11C023C1D7890068833F /* AddCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +73,6 @@
 		769B632823C733FF00970F6D /* AddShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListViewController.swift; sourceTree = "<group>"; };
 		76B06B9A23C08BC80078D517 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		76B088ED23C3CF3200A9B6DB /* AllIconsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIconsSectionHeader.swift; sourceTree = "<group>"; };
-		76B088EE23C3CF3200A9B6DB /* AllIconsSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllIconsSectionHeader.xib; sourceTree = "<group>"; };
 		76B088F523C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedIconsSectionHeader.swift; sourceTree = "<group>"; };
 		76B088F623C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedIconsSectionHeader.xib; sourceTree = "<group>"; };
 		76BC5A8F23BFC3CA008842AE /* Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +92,7 @@
 		76F2807623C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+SuggestedItemCollectionView.swift"; sourceTree = "<group>"; };
 		76F2807823C39CE300F4AE87 /* Categories+TextViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+TextViewFunctions.swift"; sourceTree = "<group>"; };
 		76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedIconsCell.swift; sourceTree = "<group>"; };
-		76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedIconsCell.xib; sourceTree = "<group>"; };
 		76F2808123C3C71800F4AE87 /* AllIconsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIconsCell.swift; sourceTree = "<group>"; };
-		76F2808223C3C71800F4AE87 /* AllIconsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllIconsCell.xib; sourceTree = "<group>"; };
 		76FC11C023C1D7890068833F /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				76B088ED23C3CF3200A9B6DB /* AllIconsSectionHeader.swift */,
-				76B088EE23C3CF3200A9B6DB /* AllIconsSectionHeader.xib */,
 			);
 			path = "All Icons Section Header";
 			sourceTree = "<group>";
@@ -309,7 +302,6 @@
 			children = (
 				76B088F923C3D4C100A9B6DB /* Suggested Icons Section Header */,
 				76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */,
-				76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */,
 			);
 			path = "Suggested Icons Cell";
 			sourceTree = "<group>";
@@ -328,7 +320,6 @@
 			children = (
 				76B088F223C3D48400A9B6DB /* All Icons Section Header */,
 				76F2808123C3C71800F4AE87 /* AllIconsCell.swift */,
-				76F2808223C3C71800F4AE87 /* AllIconsCell.xib */,
 			);
 			path = "All Icons Cell";
 			sourceTree = "<group>";
@@ -394,11 +385,8 @@
 				76BC5A9F23BFC3CB008842AE /* LaunchScreen.storyboard in Resources */,
 				76BC5A9C23BFC3CB008842AE /* Assets.xcassets in Resources */,
 				76BC5A9A23BFC3CA008842AE /* Main.storyboard in Resources */,
-				76F2808423C3C71800F4AE87 /* AllIconsCell.xib in Resources */,
 				76B088F823C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.xib in Resources */,
 				761DB47D23C51D6100A185D4 /* images.json in Resources */,
-				76F2807D23C3C64300F4AE87 /* SuggestedIconsCell.xib in Resources */,
-				76B088F023C3CF3200A9B6DB /* AllIconsSectionHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

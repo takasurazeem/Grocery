@@ -45,15 +45,5 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // MARK:- Register All Icons Cells
-        allIconsCollectionView.register(UINib(nibName: "AllIconsCell", bundle: nil), forCellWithReuseIdentifier: "AllIconsCell")
-        allIconsCollectionView.register(UINib(nibName: "AllIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind:
-            UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AllIconsSectionHeader")
-//        allIconsCollectionView.collectionViewLayout = columnLayout
-        // MARK:- Register Suggested Icons Cells
-        suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsCell", bundle: nil), forCellWithReuseIdentifier: "suggestedIconsCell")
-        suggestedIconsCollectionView.register(UINib(nibName: "SuggestedIconsSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SuggestedIconsSectionHeader")
-        
     }
 }

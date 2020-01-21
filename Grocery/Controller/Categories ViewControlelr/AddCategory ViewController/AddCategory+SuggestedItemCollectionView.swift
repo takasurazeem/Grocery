@@ -15,7 +15,7 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionView.viewWithTag(1001) {
+        if collectionView == allIconsCollectionView {
             return icons[section]?.count ?? 0
         } else {
             return suggestedIcons.count
@@ -23,7 +23,7 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionView.viewWithTag(1001) {
+        if collectionView == allIconsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
             
             let imageName = icons[indexPath.section]![indexPath.row]
@@ -41,18 +41,8 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == allIconsCollectionView {
-//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
-            if let indexPathForSelectedCell = collectionView.indexPathsForSelectedItems?.first {
-//                collectionView.deselectItem(at: indexPath, animated: true)
-            }
-            print(cell.isSelected)
-//            cell.isSelected = !cell.isSelected
-//            print(cell.isSelected)
-            if cell.isSelected {
-                print("Selected: \(icons[indexPath.section]![indexPath.row])")
-                cell.image.image = nil
-            }
+            cell.isSelected = !cell.isSelected
         }
     }
     
