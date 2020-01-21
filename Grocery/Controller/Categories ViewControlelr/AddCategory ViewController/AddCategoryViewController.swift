@@ -45,12 +45,6 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let columnLayout = ColumnFlowLayout(
-//            cellsPerRow: 5,
-//            minimumInteritemSpacing: 10,
-//            minimumLineSpacing: 10,
-//            sectionInset: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-//        )
         
         // MARK:- Register All Icons Cells
         allIconsCollectionView.register(UINib(nibName: "AllIconsCell", bundle: nil), forCellWithReuseIdentifier: "AllIconsCell")

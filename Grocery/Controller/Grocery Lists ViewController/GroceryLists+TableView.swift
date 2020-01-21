@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension GroceryListViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
@@ -44,14 +45,6 @@ extension GroceryListViewController : UITableViewDelegate, UITableViewDataSource
         deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 35, height: 35)).image { _ in
             UIImage(named: "delete")?.draw(in: CGRect(x: 0, y: 0, width: 35, height: 35))
         }
-        
-//        deleteAction.image = UIImage(named: "delete")
-//        deleteAction.image = UIImage(systemName: "trash")?.colored(in: #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1))
-//        deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 35, height: 35)).image { _ in
-//            UIImage(systemName: "delete")?.draw(in: CGRect(x: 0, y: 0, width: 35, height: 35))
-//        }
-//        deleteAction.image = deleteAction.image?.colored(in: .white)
-        
 
         deleteAction.backgroundColor = #colorLiteral(red: 0.1890334944, green: 0.189160884, blue: 0.2188395332, alpha: 1)
         deleteAction.backgroundColor = #colorLiteral(red: 0.1450127661, green: 0.1447194815, blue: 0.1654368043, alpha: 1)
@@ -110,6 +103,11 @@ extension GroceryListViewController : UITableViewDelegate, UITableViewDataSource
         if segue.identifier == "AddShoppingList" {
             guard let destination = segue.destination as? AddShoppingListViewController else { return  }
             destination.dataController = dataController
+        } else if segue.identifier == "Categories" {
+            guard let destination = segue.destination as? CategoriesViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            destination.dataController = self.dataController
+            destination.shoppingList = fetchedResultsController.object(at: indexPath)
         }
     }
 }

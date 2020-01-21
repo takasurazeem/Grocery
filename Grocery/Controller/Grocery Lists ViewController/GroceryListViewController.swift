@@ -17,7 +17,6 @@ class GroceryListViewController: UIViewController {
     let cellIdentifier = "ShoppingListsCell"
     
     var fetchedResultsController: NSFetchedResultsController<ShoppingList>!
-        
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +40,7 @@ class GroceryListViewController: UIViewController {
         let request : NSFetchRequest<ShoppingList> = ShoppingList.fetchRequest()
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "ShoppingLists")
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -57,7 +56,7 @@ class GroceryListViewController: UIViewController {
     }
 }
 
-
+//MARK: Core Data Section
 extension GroceryListViewController : NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

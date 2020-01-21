@@ -39,16 +39,28 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == allIconsCollectionView {
+//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
+            if let indexPathForSelectedCell = collectionView.indexPathsForSelectedItems?.first {
+//                collectionView.deselectItem(at: indexPath, animated: true)
+            }
+            print(cell.isSelected)
+//            cell.isSelected = !cell.isSelected
+//            print(cell.isSelected)
+            if cell.isSelected {
+                print("Selected: \(icons[indexPath.section]![indexPath.row])")
+                cell.image.image = nil
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if (kind == UICollectionView.elementKindSectionHeader) {
-            if collectionView == collectionView.viewWithTag(1001){
+            if collectionView == allIconsCollectionView {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllIconsSectionHeader", for: indexPath) as! AllIconsSectionHeader
                 headerView.setup(label: sectionTitles[indexPath.section])
-                return headerView
-            } else {
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SuggestedIconsSectionHeader", for: indexPath) as! SuggestedIconsSectionHeader
-                headerView.setup(title: "Suggested Icons")
-                
                 return headerView
             }
         }

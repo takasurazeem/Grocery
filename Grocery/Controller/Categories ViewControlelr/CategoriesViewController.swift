@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-
+import CoreData
 
 class CategoriesViewController: UIViewController {
     
@@ -16,9 +15,12 @@ class CategoriesViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    let categories = _GroceryCategory.getDummyCategories()
     let cellIdentifier = "Cell"
     
+    var dataController: DataController!
+    var shoppingList: ShoppingList!
+    
+    var fetchedResultsController: NSFetchedResultsController<GroceryCategory>!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,16 +42,54 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupFetchedResultsController()
+    }
+    
+    func setupFetchedResultsController() {
+        let request : NSFetchRequest<GroceryCategory> = GroceryCategory.fetchRequest()
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        request.sortDescriptors = [sort]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "Categories")
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error {
+            fatalError("Could not perform fetch: \(error)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShoppingList" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let category = categories[indexPath.row]
+            let category = fetchedResultsController.object(at: indexPath)
             guard let destination = segue.destination as? GroceryItemViewController else { return }
             destination.title = category.name
         }
     }
-    
 }
 
+
+//MARK: Core Data Section
+extension CategoriesViewController : NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        default:
+            break
+        }
+    }
+}

@@ -10,13 +10,13 @@ import UIKit
 extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categories.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! GroceryCategoryCell
-        
-        cell.setup(item: categories[indexPath.row])
+        let category = fetchedResultsController.object(at: indexPath)
+        cell.setup(item: category)
         
         return cell
     }

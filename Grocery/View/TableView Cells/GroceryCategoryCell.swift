@@ -23,22 +23,22 @@ class GroceryCategoryCell: UITableViewCell {
         remainingCount.layer.cornerRadius = remainingCount.frame.height / 3
     }
     
-    func setup(item: _GroceryCategory) {
-        itemImage.image = item.image
+    func setup(item: GroceryCategory) {
+        itemImage.image = UIImage(named: item.imageName!)
         itemName.text = item.name
         itemName.textColor = .white
-        remainingCount.text = "\(item.itemsCount)"
+//        remainingCount.text = "\(item.itemsCount)"
         
         
-        if item.itemsCount == 0 {
-            let color = #colorLiteral(red: 0.3624763489, green: 0.3624763489, blue: 0.3624763489, alpha: 1)
-            remainingCount.layer.backgroundColor  = color.cgColor
-            itemName.textColor = color
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: item.name)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.white, range: NSMakeRange(0, attributeString.length))
-            itemName.attributedText = attributeString
-        }
+//        if item.itemsCount == 0 {
+//            let color = #colorLiteral(red: 0.3624763489, green: 0.3624763489, blue: 0.3624763489, alpha: 1)
+//            remainingCount.layer.backgroundColor  = color.cgColor
+//            itemName.textColor = color
+//            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: item.name)
+//            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+//            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.white, range: NSMakeRange(0, attributeString.length))
+//            itemName.attributedText = attributeString
+//        }
     }
     
     

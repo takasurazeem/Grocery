@@ -20,4 +20,6 @@ class AllIconsCell: UICollectionViewCell {
     func setup(imageWith name: String) {
         image.image = UIImage(named: name)
     }
+    
+    
 }

@@ -414,6 +414,11 @@
                                     <constraint firstAttribute="height" constant="64" id="yOA-TS-UE1"/>
                                 </constraints>
                                 <state key="normal" image="add-icon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="bOn-Py-VJs" kind="presentation" identifier="AddShoppingList" id="zoz-EP-4oq">
                                         <segue key="commit" inheritsFrom="parent" id="Zvq-aR-OdO"/>

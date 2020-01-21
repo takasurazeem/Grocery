@@ -41,12 +41,11 @@
 		76BC5AA923BFD10D008842AE /* _GroceryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC5AA823BFD10D008842AE /* _GroceryCategory.swift */; };
 		76BC5AAB23BFD2E0008842AE /* GroceryCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC5AAA23BFD2E0008842AE /* GroceryCategoryCell.swift */; };
 		76BC5AAF23BFD6BE008842AE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC5AAE23BFD6BE008842AE /* UIView+Extension.swift */; };
-		76C39BE223C20AB200E60E20 /* AddCategoryViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */; };
-		76C39BE423C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */; };
+		76C39BE223C20AB200E60E20 /* CategoriesViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE123C20AB200E60E20 /* CategoriesViewController+UITableView.swift */; };
 		76C39BE723C20E4E00E60E20 /* ShoppingList+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C39BE623C20E4E00E60E20 /* ShoppingList+TableView.swift */; };
 		76EEFA4E23C084E30099CC29 /* GroceryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EEFA4D23C084E30099CC29 /* GroceryItemViewController.swift */; };
 		76F2807723C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807623C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift */; };
-		76F2807923C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807823C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift */; };
+		76F2807923C39CE300F4AE87 /* Categories+TextViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807823C39CE300F4AE87 /* Categories+TextViewFunctions.swift */; };
 		76F2807C23C3C64300F4AE87 /* SuggestedIconsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */; };
 		76F2807D23C3C64300F4AE87 /* SuggestedIconsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */; };
 		76F2808323C3C71800F4AE87 /* AllIconsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2808123C3C71800F4AE87 /* AllIconsCell.swift */; };
@@ -91,12 +90,11 @@
 		76BC5AA823BFD10D008842AE /* _GroceryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GroceryCategory.swift; sourceTree = "<group>"; };
 		76BC5AAA23BFD2E0008842AE /* GroceryCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryCategoryCell.swift; sourceTree = "<group>"; };
 		76BC5AAE23BFD6BE008842AE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryViewController+UITableView.swift"; sourceTree = "<group>"; };
-		76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoriesViewController+AddCategoryCard.swift"; sourceTree = "<group>"; };
+		76C39BE123C20AB200E60E20 /* CategoriesViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoriesViewController+UITableView.swift"; sourceTree = "<group>"; };
 		76C39BE623C20E4E00E60E20 /* ShoppingList+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingList+TableView.swift"; sourceTree = "<group>"; };
 		76EEFA4D23C084E30099CC29 /* GroceryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemViewController.swift; sourceTree = "<group>"; };
 		76F2807623C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+SuggestedItemCollectionView.swift"; sourceTree = "<group>"; };
-		76F2807823C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+TextViewFunctions.swift"; sourceTree = "<group>"; };
+		76F2807823C39CE300F4AE87 /* Categories+TextViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+TextViewFunctions.swift"; sourceTree = "<group>"; };
 		76F2807A23C3C64300F4AE87 /* SuggestedIconsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedIconsCell.swift; sourceTree = "<group>"; };
 		76F2807B23C3C64300F4AE87 /* SuggestedIconsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedIconsCell.xib; sourceTree = "<group>"; };
 		76F2808123C3C71800F4AE87 /* AllIconsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIconsCell.swift; sourceTree = "<group>"; };
@@ -262,8 +260,8 @@
 			children = (
 				76F2807523C39C8700F4AE87 /* AddCategory ViewController */,
 				76BC5A9623BFC3CA008842AE /* CategoriesViewController.swift */,
-				76C39BE323C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift */,
-				76C39BE123C20AB200E60E20 /* AddCategoryViewController+UITableView.swift */,
+				76F2807823C39CE300F4AE87 /* Categories+TextViewFunctions.swift */,
+				76C39BE123C20AB200E60E20 /* CategoriesViewController+UITableView.swift */,
 			);
 			path = "Categories ViewControlelr";
 			sourceTree = "<group>";
@@ -293,7 +291,6 @@
 			children = (
 				76FC11C023C1D7890068833F /* AddCategoryViewController.swift */,
 				76F2807623C39CB500F4AE87 /* AddCategory+SuggestedItemCollectionView.swift */,
-				76F2807823C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift */,
 			);
 			path = "AddCategory ViewController";
 			sourceTree = "<group>";
@@ -415,8 +412,7 @@
 				76F2807C23C3C64300F4AE87 /* SuggestedIconsCell.swift in Sources */,
 				761DB47F23C5266D00A185D4 /* ColumnFlowLayout.swift in Sources */,
 				769B632923C733FF00970F6D /* AddShoppingListViewController.swift in Sources */,
-				76C39BE423C20B5F00E60E20 /* CategoriesViewController+AddCategoryCard.swift in Sources */,
-				76F2807923C39CE300F4AE87 /* AddCategory+TextViewFunctions.swift in Sources */,
+				76F2807923C39CE300F4AE87 /* Categories+TextViewFunctions.swift in Sources */,
 				760046BB23D04A0300F584F3 /* GroceryItem+Extension.swift in Sources */,
 				7609EC0723C724CF0013A942 /* GroceryListViewController.swift in Sources */,
 				769B632623C72BD000970F6D /* Date+Extension.swift in Sources */,
@@ -428,7 +424,7 @@
 				76BC5AAB23BFD2E0008842AE /* GroceryCategoryCell.swift in Sources */,
 				761EE53F23C749D000A48DA1 /* DateTextField.swift in Sources */,
 				76EEFA4E23C084E30099CC29 /* GroceryItemViewController.swift in Sources */,
-				76C39BE223C20AB200E60E20 /* AddCategoryViewController+UITableView.swift in Sources */,
+				76C39BE223C20AB200E60E20 /* CategoriesViewController+UITableView.swift in Sources */,
 				76BC5A9323BFC3CA008842AE /* AppDelegate.swift in Sources */,
 				76BC5A9523BFC3CA008842AE /* SceneDelegate.swift in Sources */,
 				7609EC0B23C725000013A942 /* GroceryLists+TableView.swift in Sources */,
