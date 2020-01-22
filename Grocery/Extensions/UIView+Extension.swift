@@ -24,88 +24,99 @@ class DesignableLabel: UILabel {
 
 
 extension UIView {
-  
-  @IBInspectable
-  var cornerRadius: CGFloat {
-    get {
-      return layer.cornerRadius
+    
+    //MARK: animate border
+    /// Animates border with duration to value
+    func animateBorderWidth(toValue: CGFloat, duration: Double) {
+        let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderWidth")
+        animation.fromValue = layer.borderWidth
+        animation.toValue = toValue
+        animation.duration = duration
+        layer.add(animation, forKey: "Width")
+        layer.borderWidth = toValue
     }
-    set {
-      layer.cornerRadius = newValue
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
     }
-  }
-  
-  @IBInspectable
-  var borderWidth: CGFloat {
-    get {
-      return layer.borderWidth
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
     }
-    set {
-      layer.borderWidth = newValue
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.borderColor = color.cgColor
+            } else {
+                layer.borderColor = nil
+            }
+        }
     }
-  }
-  
-  @IBInspectable
-  var borderColor: UIColor? {
-    get {
-      if let color = layer.borderColor {
-        return UIColor(cgColor: color)
-      }
-      return nil
+    
+    @IBInspectable
+    var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
     }
-    set {
-      if let color = newValue {
-        layer.borderColor = color.cgColor
-      } else {
-        layer.borderColor = nil
-      }
+    
+    @IBInspectable
+    var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
+        }
     }
-  }
-  
-  @IBInspectable
-  var shadowRadius: CGFloat {
-    get {
-      return layer.shadowRadius
+    
+    @IBInspectable
+    var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
     }
-    set {
-      layer.shadowRadius = newValue
+    
+    @IBInspectable
+    var shadowColor: UIColor? {
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.shadowColor = color.cgColor
+            } else {
+                layer.shadowColor = nil
+            }
+        }
     }
-  }
-  
-  @IBInspectable
-  var shadowOpacity: Float {
-    get {
-      return layer.shadowOpacity
-    }
-    set {
-      layer.shadowOpacity = newValue
-    }
-  }
-  
-  @IBInspectable
-  var shadowOffset: CGSize {
-    get {
-      return layer.shadowOffset
-    }
-    set {
-      layer.shadowOffset = newValue
-    }
-  }
-  
-  @IBInspectable
-  var shadowColor: UIColor? {
-    get {
-      if let color = layer.shadowColor {
-        return UIColor(cgColor: color)
-      }
-      return nil
-    }
-    set {
-      if let color = newValue {
-        layer.shadowColor = color.cgColor
-      } else {
-        layer.shadowColor = nil
-      }
-    }
-  }
 }

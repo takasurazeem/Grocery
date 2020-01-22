@@ -39,11 +39,18 @@ extension AddCategoryViewController : UICollectionViewDelegate, UICollectionView
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if collectionView == allIconsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllIconsCell", for: indexPath) as! AllIconsCell
-            cell.isSelected = !cell.isSelected
+            let item = collectionView.cellForItem(at: indexPath) as? AllIconsCell
+            if item?.isSelected ?? false {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                return false
+            } else {
+                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+                return true
+            }
         }
+        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

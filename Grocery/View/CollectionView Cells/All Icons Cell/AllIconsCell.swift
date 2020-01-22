@@ -10,13 +10,15 @@ import UIKit
 
 class AllIconsCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var image: CategoryImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        image.layer.cornerRadius = image.frame.height / 2
     }
 
+    
+    
     func setup(imageWith name: String) {
         image.image = UIImage(named: name)
     }
@@ -24,10 +26,11 @@ class AllIconsCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.layer.borderWidth = 2
-                self.layer.borderColor = UIColor.init(white: 1, alpha: 0.5).cgColor
+//                self.image.layer.borderColor = UIColor.init(white: 1, alpha: 1).cgColor
+//                self.image.animateBorderWidth(toValue: 2, duration: 0.2)
+                self.image.animateCircle(with: 0.2, selected: true)
             } else {
-                self.backgroundColor = .clear
+                self.image.animateCircle(with: 0.2, selected: false)
             }
         }
     }
