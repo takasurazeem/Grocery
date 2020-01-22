@@ -22,7 +22,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="reminderSwitch" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="remindOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroceryCategory" inverseName="shoppingList" inverseEntity="GroceryCategory"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GroceryCategory" inverseName="shoppingList" inverseEntity="GroceryCategory"/>
     </entity>
     <elements>
         <element name="GroceryCategory" positionX="-25.3046875" positionY="-481.43359375" width="128" height="133"/>

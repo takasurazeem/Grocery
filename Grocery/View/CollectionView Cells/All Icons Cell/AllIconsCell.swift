@@ -26,10 +26,10 @@ class AllIconsCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-//                self.image.layer.borderColor = UIColor.init(white: 1, alpha: 1).cgColor
-//                self.image.animateBorderWidth(toValue: 2, duration: 0.2)
+                self.transform = .init(scaleX: 1.3, y: 1.3)
                 self.image.animateCircle(with: 0.2, selected: true)
             } else {
+                self.transform = .identity
                 self.image.animateCircle(with: 0.2, selected: false)
             }
         }

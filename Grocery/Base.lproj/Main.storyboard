@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="87Z-0a-jjs" customClass="GroceryCategoryCell" customModule="Grocery" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryCell" id="87Z-0a-jjs" customClass="GroceryCategoryCell" customModule="Grocery" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="87Z-0a-jjs" id="6Lh-Cp-bUt">
@@ -115,7 +115,7 @@
                                 </constraints>
                                 <state key="normal" image="add-icon"/>
                                 <connections>
-                                    <segue destination="QIi-OX-22S" kind="presentation" id="kt3-4K-tYX">
+                                    <segue destination="QIi-OX-22S" kind="presentation" identifier="AddCategory" id="kt3-4K-tYX">
                                         <segue key="commit" inheritsFrom="parent" id="urj-Te-GYA"/>
                                         <segue key="preview" inheritsFrom="commit" id="Es3-Pi-SvP"/>
                                     </segue>
@@ -626,22 +626,67 @@
         <!--Add Category View Controller-->
         <scene sceneID="Mpp-xb-Mev">
             <objects>
-                <viewController id="QIi-OX-22S" customClass="AddCategoryViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCategoryViewController" id="QIi-OX-22S" customClass="AddCategoryViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Cre-9O-O5H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NgT-oe-Vab" userLabel="Title and TextField">
-                                <rect key="frame" x="20" y="16" width="374" height="93"/>
+                                <rect key="frame" x="20" y="16" width="374" height="92"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbn-c9-hmt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="w5A-uH-qoe">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbn-c9-hmt">
+                                                <rect key="frame" x="0.0" y="0.0" width="202.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJA-g8-5tD">
+                                                <rect key="frame" x="202.5" y="0.0" width="70" height="40"/>
+                                                <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="65U-mB-7ML"/>
+                                                    <constraint firstAttribute="height" constant="40" id="pBj-fV-lKu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnUpdatePressed:" destination="QIi-OX-22S" eventType="touchUpInside" id="CxI-6m-2Xv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmS-Rb-QFW">
+                                                <rect key="frame" x="304" y="0.0" width="70" height="40"/>
+                                                <color key="backgroundColor" red="0.20381763580000001" green="0.20347070689999999" blue="0.2283300459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="8nv-K0-MP1"/>
+                                                    <constraint firstAttribute="width" constant="70" id="HdO-ab-xoq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnAddCategory:" destination="QIi-OX-22S" eventType="touchUpInside" id="IBz-QU-sKC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8s-jZ-PuF">
-                                        <rect key="frame" x="0.0" y="57" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="56" width="374" height="36"/>
                                         <color key="backgroundColor" red="0.30364040640000001" green="0.30427002009999998" blue="0.34283788069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -662,7 +707,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pte-ZD-yac">
-                                <rect key="frame" x="20" y="119" width="374" height="669"/>
+                                <rect key="frame" x="20" y="118" width="374" height="670"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fyJ-gw-wE7">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="140"/>
@@ -718,7 +763,7 @@
                                         </constraints>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rap-01-9hb">
-                                        <rect key="frame" x="0.0" y="150" width="374" height="519"/>
+                                        <rect key="frame" x="0.0" y="150" width="374" height="520"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH9-7Y-1oA">
                                             <size key="itemSize" width="50" height="50"/>
@@ -790,9 +835,12 @@
                     </view>
                     <connections>
                         <outlet property="allIconsCollectionView" destination="Rap-01-9hb" id="M1S-QL-GOH"/>
+                        <outlet property="btnAdd" destination="VmS-Rb-QFW" id="Sq8-ZP-nbN"/>
+                        <outlet property="btnUpdate" destination="EJA-g8-5tD" id="Wpn-a9-qRg"/>
                         <outlet property="itemNameTextField" destination="g8s-jZ-PuF" id="XkY-qz-Obz"/>
                         <outlet property="suggestedIconsCollectionView" destination="e2g-Wi-YLH" id="R2I-nO-2Xu"/>
                         <outlet property="suggestionHeightConstraint" destination="pEK-6g-Dk9" id="oTm-SO-2tj"/>
+                        <outlet property="titleLabel" destination="Nbn-c9-hmt" id="opH-Jm-B4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMJ-3w-t1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,7 +15,7 @@ class CategoriesViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    let cellIdentifier = "Cell"
+    let cellIdentifier = "categoryCell"
     
     var dataController: DataController!
     var shoppingList: ShoppingList!
@@ -64,6 +64,10 @@ class CategoriesViewController: UIViewController {
             let category = fetchedResultsController.object(at: indexPath)
             guard let destination = segue.destination as? GroceryItemViewController else { return }
             destination.title = category.name
+        } else if segue.identifier == "AddCategory" {
+            guard let destination = segue.destination as? AddCategoryViewController else { return }
+            destination.dataController = dataController
+            destination.shoppingList = shoppingList
         }
     }
 }

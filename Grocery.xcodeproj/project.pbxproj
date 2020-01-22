@@ -26,6 +26,7 @@
 		7667E31E23CC598700612300 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7667E31D23CC598700612300 /* Constants.swift */; };
 		76697AA623CC4847006728C5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76697AA423CC4847006728C5 /* Model.xcdatamodeld */; };
 		7680C2F523D8BD580062DD7E /* CategoryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680C2F423D8BD580062DD7E /* CategoryImageView.swift */; };
+		7680C2F723D8C6870062DD7E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680C2F623D8C6870062DD7E /* UIViewController+Extension.swift */; };
 		769B632623C72BD000970F6D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B632523C72BD000970F6D /* Date+Extension.swift */; };
 		769B632923C733FF00970F6D /* AddShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B632823C733FF00970F6D /* AddShoppingListViewController.swift */; };
 		76B06B9B23C08BC80078D517 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B06B9A23C08BC80078D517 /* RootViewController.swift */; };
@@ -71,6 +72,7 @@
 		7667E31D23CC598700612300 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76697AA523CC4847006728C5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		7680C2F423D8BD580062DD7E /* CategoryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryImageView.swift; sourceTree = "<group>"; };
+		7680C2F623D8C6870062DD7E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		769B632523C72BD000970F6D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		769B632823C733FF00970F6D /* AddShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListViewController.swift; sourceTree = "<group>"; };
 		76B06B9A23C08BC80078D517 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				769B632523C72BD000970F6D /* Date+Extension.swift */,
 				761EE53923C7453600A48DA1 /* TextField+Extension.swift */,
 				76482C8A23CC80DD00E834BA /* UIImage+Extension.swift */,
+				7680C2F623D8C6870062DD7E /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				760046BB23D04A0300F584F3 /* GroceryItem+Extension.swift in Sources */,
 				7609EC0723C724CF0013A942 /* GroceryListViewController.swift in Sources */,
 				769B632623C72BD000970F6D /* Date+Extension.swift in Sources */,
+				7680C2F723D8C6870062DD7E /* UIViewController+Extension.swift in Sources */,
 				761EE53C23C7494D00A48DA1 /* AddShoppingListViewController+Extension.swift in Sources */,
 				76BC5AAF23BFD6BE008842AE /* UIView+Extension.swift in Sources */,
 				7609EC0D23C727C70013A942 /* _ShoppingLists.swift in Sources */,
