@@ -775,7 +775,7 @@
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllIconsCell" id="WXb-fj-DZf" customClass="AllIconsCell" customModule="Grocery" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fcc-c9-fd7">
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fcc-c9-fd7" customClass="CategoryCellUIView" customModule="Grocery" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -793,6 +793,7 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
+                                                    <outlet property="cellContentView" destination="fcc-c9-fd7" id="wVP-uH-cLZ"/>
                                                     <outlet property="image" destination="YBm-q9-T6x" id="e38-46-gVo"/>
                                                 </connections>
                                             </collectionViewCell>

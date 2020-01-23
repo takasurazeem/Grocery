@@ -9,14 +9,16 @@
 import UIKit
 
 class AllIconsCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var image: CategoryImageView!
+    @IBOutlet weak var cellContentView: CategoryCellUIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         image.layer.cornerRadius = image.frame.height / 2
+        cellContentView.layer.cornerRadius = cellContentView.frame.height / 2
     }
-
+    
     
     
     func setup(imageWith name: String) {
@@ -26,11 +28,13 @@ class AllIconsCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.transform = .init(scaleX: 1.3, y: 1.3)
-                self.image.animateCircle(with: 0.2, selected: true)
+                //                self.image.animateCircle(with: 0.2, selected: true)
+                cellContentView.animateCircle(with: 0.2, selected: true)
+                self.image.transform = .init(scaleX: 0.8, y: 0.8)
             } else {
-                self.transform = .identity
-                self.image.animateCircle(with: 0.2, selected: false)
+                self.image.transform = .identity
+                cellContentView.animateCircle(with: 0.2, selected: false)
+                //                self.image.animateCircle(with: 0.2, selected: false)
             }
         }
     }
