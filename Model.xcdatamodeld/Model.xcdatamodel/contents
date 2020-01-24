@@ -26,7 +26,7 @@
     </entity>
     <elements>
         <element name="GroceryCategory" positionX="-25.3046875" positionY="-481.43359375" width="128" height="133"/>
-        <element name="GroceryItems" positionX="-8.59375" positionY="-253.5703125" width="128" height="133"/>
+        <element name="GroceryItems" positionX="148.390625" positionY="-611.23046875" width="128" height="133"/>
         <element name="ShoppingList" positionX="305.8125" positionY="-529.82421875" width="128" height="133"/>
     </elements>
 </model>

@@ -21,6 +21,16 @@ class GroceryListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupSearchController()
+        setupFetchedResultsController()
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    func setupSearchController() {
         self.navigationController?.navigationItem.searchController = searchController
         // 1
         searchController.searchResultsUpdater = self
@@ -34,8 +44,9 @@ class GroceryListViewController: UIViewController {
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
-    }
 
+    }
+    
     func setupFetchedResultsController() {
         let request : NSFetchRequest<ShoppingList> = ShoppingList.fetchRequest()
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)
@@ -51,9 +62,13 @@ class GroceryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupFetchedResultsController()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
+    }
+    
 }
 
 //MARK: Core Data Section

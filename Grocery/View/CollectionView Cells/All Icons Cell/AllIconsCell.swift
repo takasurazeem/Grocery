@@ -28,13 +28,11 @@ class AllIconsCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                //                self.image.animateCircle(with: 0.2, selected: true)
-                cellContentView.animateCircle(with: 0.2, selected: true)
+                cellContentView.animateCircle(with: 0.5, selected: true)
                 self.image.transform = .init(scaleX: 0.8, y: 0.8)
             } else {
                 self.image.transform = .identity
-                cellContentView.animateCircle(with: 0.2, selected: false)
-                //                self.image.animateCircle(with: 0.2, selected: false)
+                cellContentView.animateCircle(with: 0.5, selected: false)
             }
         }
     }

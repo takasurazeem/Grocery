@@ -102,6 +102,6 @@ class AddCategoryViewController: UIViewController {
         let category = GroceryCategory(context: dataController.viewContext)
         category.name = name
         category.imageName = imageName
-        category.shoppingList = shoppingList
+        category.shoppingList = self.shoppingList
     }
 }

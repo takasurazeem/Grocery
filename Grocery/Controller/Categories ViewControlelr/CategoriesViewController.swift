@@ -38,21 +38,30 @@ class CategoriesViewController: UIViewController {
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
+        
+        setupFetchedResultsController()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupFetchedResultsController()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
     }
     
     func setupFetchedResultsController() {
         let request : NSFetchRequest<GroceryCategory> = GroceryCategory.fetchRequest()
+        let predicate = NSPredicate(format: "shoppingList == %@", shoppingList)
+        request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "Categories")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(shoppingList)-categories")
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
+            print("Items count: \(fetchedResultsController.sections?[0].numberOfObjects ?? 0)")
         } catch let error {
             fatalError("Could not perform fetch: \(error)")
         }
