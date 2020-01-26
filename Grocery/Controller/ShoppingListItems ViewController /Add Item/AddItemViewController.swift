@@ -17,6 +17,9 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var textFieldQuantity: DateTextField!
     @IBOutlet weak var textFieldUnit: DateTextField!
     
+    var dataController: DataController!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -27,6 +30,9 @@ class AddItemViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+    }
+
+    @IBAction func btnAddPressed(_ sender: UIButton) {
     }
     
 }

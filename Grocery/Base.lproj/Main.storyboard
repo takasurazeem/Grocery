@@ -901,6 +901,9 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnAddPressed:" destination="GtH-A4-JQz" eventType="touchUpInside" id="oaq-Hv-Ac8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

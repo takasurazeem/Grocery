@@ -69,7 +69,10 @@ class GroceryItemViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddItem" {
-            
+            guard let destination = segue.destination as? AddItemViewController else {
+                fatalError("Check your class")
+            }
+            destination.dataController = dataController
         }
     }
     
