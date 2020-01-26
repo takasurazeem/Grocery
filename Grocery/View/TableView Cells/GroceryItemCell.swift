@@ -17,23 +17,30 @@ class GroceryItemCell: UITableViewCell {
     }
 
     func setup(item: GroceryItem) {
-        itemName.text = Int(item.quantity ?? NSDecimalNumber(integerLiteral: 0)) >= 1 ? item.name : "\(item.quantity) \(item.name)"
+        let quantity = item.quantity!.doubleValue
+        let text = quantity == 0 ? item.name! : "\(item.quantity!) \(item.unit!) \(item.name!)"
+        itemName.text = text
         completedIcon.image = UIImage(named: "circle-shape-outline")!
+        
         if item.completed {
             completedIcon.image = #imageLiteral(resourceName: "check-mark.png")
-            let color = #colorLiteral(red: 0.3624763489, green: 0.3624763489, blue: 0.3624763489, alpha: 1)
+            let color = #colorLiteral(red: 0.8879938472, green: 0.8879938472, blue: 0.8879938472, alpha: 1)
             itemName.textColor = color
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: item.name!)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.white, range: NSMakeRange(0, attributeString.length))
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+            let range = NSMakeRange(0, attributeString.length)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: range)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), range: range)
             itemName.attributedText = attributeString
         }
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        if selected {
+//            print("Selected")
+//        } else {
+//            print("Deselected")
+//        }
+//    }
 
 }

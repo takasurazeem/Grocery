@@ -18,6 +18,21 @@ extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
+            indexPathForSelectedRow == indexPath {
+            tableView.deselectRow(at: indexPath, animated: false)
+            let item = fetchedResultsController.object(at: indexPath)
+            item.completed = !item.completed
+            save()
+            return nil
+        }
+        let item = fetchedResultsController.object(at: indexPath)
+        item.completed = !item.completed
+        save()
+        return indexPath
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GroceryItemCell
         
@@ -26,6 +41,14 @@ extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource
         
         return cell
         
+    }
+    
+    func save() {
+        do {
+            try dataController.viewContext.save()
+        } catch let error {
+            debugPrint("Error: \(error)")
+        }
     }
     
 }

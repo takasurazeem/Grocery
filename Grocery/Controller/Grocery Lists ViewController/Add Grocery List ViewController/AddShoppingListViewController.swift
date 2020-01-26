@@ -42,6 +42,7 @@ class AddShoppingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         listName.becomeFirstResponder()
     }
     

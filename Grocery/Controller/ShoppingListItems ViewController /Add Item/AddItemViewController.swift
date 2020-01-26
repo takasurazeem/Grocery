@@ -29,6 +29,7 @@ class AddItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -63,7 +64,7 @@ class AddItemViewController: UIViewController {
             return false
         }
         item.name = name
-        item.groceryCategory = itemCategory
+        item.category = itemCategory
         if let quantity = textFieldQuantity.text, !quantity.isEmpty {
             item.quantity = NSDecimalNumber(string: quantity)
         } else {

@@ -24,7 +24,7 @@ class DesignableLabel: UILabel {
 
 
 extension UIView {
-    
+        
     //MARK: animate border
     /// Animates border with duration to value
     func animateBorderWidth(toValue: CGFloat, duration: Double) {

@@ -37,7 +37,7 @@ class GroceryCategoryCell: UITableViewCell {
             }
         }
         remainingCount.text = "\(notCompleted)"
-        remainingCount.isHidden = item.groceryItems?.count == 0 ? true : false
+        remainingCount.isHidden = item.groceryItems?.count == 0 || notCompleted == 0 ? true : false
         
         
         if notCompleted == 0 && item.groceryItems?.count != 0 {

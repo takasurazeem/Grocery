@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+extension GroceryItem {
+    
+    public override func awakeFromInsert() {
+        creationDate = Date()
+        completed = false
+    }
+    
+}

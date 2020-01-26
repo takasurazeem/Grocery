@@ -32,11 +32,38 @@ class GroceryItemViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
+        updateItemsDoneOverTotalItemsLabel()
     }
+    
+    func updateItemsDoneOverTotalItemsLabel() {
+        if let items = fetchedResultsController.fetchedObjects {
+            var totalItems = items.count
+            if totalItems == 0 {
+                itemsDone.title = ""
+                return
+            }
+            var itemsDone = 0
+            items.forEach { (item) in
+                if item.completed {
+                    itemsDone += 1
+                }
+            }
+            self.itemsDone.title = "\(itemsDone)/\(totalItems)"
+        }
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
+    }
+    
     
     func setupFetchedResultsController() {
         let request : NSFetchRequest<GroceryItem> = GroceryItem.fetchRequest()
-        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        let predicate = NSPredicate(format: "category == %@", itemCategory)
+        request.predicate = predicate
+        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(itemCategory)-items")
         fetchedResultsController.delegate = self
@@ -95,10 +122,13 @@ extension GroceryItemViewController : NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
+            updateItemsDoneOverTotalItemsLabel()
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
+            updateItemsDoneOverTotalItemsLabel()
         case .update:
             tableView.reloadRows(at: [indexPath!], with: .fade)
+            updateItemsDoneOverTotalItemsLabel()
         default:
             break
         }

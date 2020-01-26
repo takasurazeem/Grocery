@@ -4,7 +4,7 @@
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="groceryItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroceryItem" inverseName="groceryCategory" inverseEntity="GroceryItem"/>
+        <relationship name="groceryItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroceryItem" inverseName="category" inverseEntity="GroceryItem"/>
         <relationship name="shoppingList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingList" inverseName="categories" inverseEntity="ShoppingList"/>
     </entity>
     <entity name="GroceryItem" representedClassName=".GroceryItem" syncable="YES" codeGenerationType="class">
@@ -13,7 +13,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Decimal" defaultValueString="0"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
-        <relationship name="groceryCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryCategory" inverseName="groceryItems" inverseEntity="GroceryCategory"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryCategory" inverseName="groceryItems" inverseEntity="GroceryCategory"/>
     </entity>
     <entity name="ShoppingList" representedClassName=".ShoppingList" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -63,9 +63,9 @@ class CategoriesViewController: UIViewController {
         let request : NSFetchRequest<GroceryCategory> = GroceryCategory.fetchRequest()
         let predicate = NSPredicate(format: "shoppingList == %@", shoppingList)
         request.predicate = predicate
-        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: shoppingList))-categories")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(shoppingList)-categories")
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -114,4 +114,5 @@ extension CategoriesViewController : NSFetchedResultsControllerDelegate {
             break
         }
     }
+
 }
