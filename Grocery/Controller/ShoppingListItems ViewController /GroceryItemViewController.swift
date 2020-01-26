@@ -26,8 +26,12 @@ class GroceryItemViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupSearchController()
         setupFetchedResultsController()
+        setupSearchController()
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
     }
     
     func setupFetchedResultsController() {
@@ -60,8 +64,6 @@ class GroceryItemViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         itemsDone.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .disabled)
         itemsDone.isEnabled = false
         self.navigationItem.rightBarButtonItem = itemsDone
@@ -73,6 +75,7 @@ class GroceryItemViewController: UIViewController {
                 fatalError("Check your class")
             }
             destination.dataController = dataController
+            destination.itemCategory = itemCategory
         }
     }
     
@@ -88,6 +91,16 @@ extension GroceryItemViewController : NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
     
-    
-    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        default:
+            break
+        }
+    }
 }

@@ -27,6 +27,11 @@ class CategoriesViewController: UIViewController {
         self.title = shoppingList.name
         setupSearchController()
         setupFetchedResultsController()
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func viewDidLoad() {

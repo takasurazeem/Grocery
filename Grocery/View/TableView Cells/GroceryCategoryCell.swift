@@ -28,19 +28,19 @@ class GroceryCategoryCell: UITableViewCell {
         itemName.text = item.name
         itemName.textColor = .white
         
-        var completed = 0
+        var notCompleted = 0
         if let items = item.groceryItems as? Set<GroceryItem> {
             items.forEach { (gItem) in
-                if gItem.completed {
-                    completed += 1
+                if !gItem.completed {
+                    notCompleted += 1
                 }
             }
         }
-        remainingCount.text = "\(completed)"
+        remainingCount.text = "\(notCompleted)"
         remainingCount.isHidden = item.groceryItems?.count == 0 ? true : false
         
         
-        if completed == 0 && item.groceryItems?.count != 0 {
+        if notCompleted == 0 && item.groceryItems?.count != 0 {
             let color = #colorLiteral(red: 0.3624763489, green: 0.3624763489, blue: 0.3624763489, alpha: 1)
             remainingCount.layer.backgroundColor  = color.cgColor
             itemName.textColor = color

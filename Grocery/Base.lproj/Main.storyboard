@@ -255,6 +255,10 @@
                         <viewLayoutGuide key="safeArea" id="uXS-a7-wKx"/>
                     </view>
                     <navigationItem key="navigationItem" id="FNR-G2-ofL"/>
+                    <connections>
+                        <outlet property="btnAddItem" destination="q3f-rq-bBY" id="omb-iH-Ft2"/>
+                        <outlet property="tableView" destination="7vK-Za-CX6" id="3Xi-Jd-SsR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwT-vO-d5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
