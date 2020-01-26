@@ -11,18 +11,39 @@ import CoreData
 
 class GroceryItemViewController: UIViewController {
     
-    let items = _GroceryItems.getGroceryItems()
     let cellIdentifier = "GroceryItemCell"
+    let searchController = UISearchController(searchResultsController: nil)
+    let itemsDone = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     
-    let itemsDone = UIBarButtonItem(title: "3/10", style: .plain, target: nil, action: nil)
     var dataController: DataController!
+    var fetchedResultsController: NSFetchedResultsController<GroceryItem>!
+    var itemCategory: GroceryCategory!
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddItem: UIButton!
-    let searchController = UISearchController(searchResultsController: nil)
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupSearchController()
+        setupFetchedResultsController()
+    }
+    
+    func setupFetchedResultsController() {
+        let request : NSFetchRequest<GroceryItem> = GroceryItem.fetchRequest()
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        request.sortDescriptors = [sort]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(itemCategory)-items")
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error {
+            fatalError("Could not perform fetch: \(error)")
+        }
+    }
+    
+    func setupSearchController() {
         self.navigationController?.navigationItem.searchController = searchController
         // 1
         searchController.searchResultsUpdater = self
@@ -36,9 +57,7 @@ class GroceryItemViewController: UIViewController {
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
-        
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +67,24 @@ class GroceryItemViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = itemsDone
     }
     
-    @IBAction func btnAddItemPressed(_ sender: Any) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddItem" {
+            
+        }
     }
+    
+}
+
+extension GroceryItemViewController : NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    
     
 }

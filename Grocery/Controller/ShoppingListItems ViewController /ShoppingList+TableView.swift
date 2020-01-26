@@ -15,15 +15,17 @@ extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GroceryItemCell
         
-        cell.setup(item: items[indexPath.row])
+        let item = fetchedResultsController.object(at: indexPath)
+        cell.setup(item: item)
         
         return cell
+        
     }
     
 }

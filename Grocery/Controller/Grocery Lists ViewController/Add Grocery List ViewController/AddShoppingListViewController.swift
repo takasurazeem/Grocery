@@ -18,9 +18,7 @@ class AddShoppingListViewController: UIViewController {
     @IBOutlet weak var btnUpdate: UIButton!
     
     var dataController: DataController!
-    let defaults = UserDefaults.standard
     fileprivate let idKey = "shoppingListId"
-    var id = 1
     
     var datePicker : UIDatePicker!
     let dateFormat = "dd/MM/yyyy h:mm a"
@@ -52,10 +50,8 @@ class AddShoppingListViewController: UIViewController {
     }
     
     @IBAction func saveShoppingList(_ sender: UIButton) {
-        id = defaults.value(forKey: idKey) as? Int ?? 1
         let context = dataController.viewContext
         let shoppingList = ShoppingList(context: context)
-        shoppingList.id = Int64(id)
         shoppingList.name = listName.text
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
@@ -68,10 +64,7 @@ class AddShoppingListViewController: UIViewController {
         } catch let error {
             debugPrint(error)
         }
-        self.dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.defaults.set(self.id + 1, forKey: self.idKey)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func updateList(_ sender: UIButton) {

@@ -15,19 +15,11 @@ class AddCategoryViewController: UIViewController {
     @IBOutlet weak var btnUpdate: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
-    let allIcons = _GroceryCategory.getFoodIcons()!
-    let sectionTitles = ["Foods", "Hardwares"]
-    var icons: [Int: [String]] = [:]
-    
-    var suggestedIcons : [UIImage] = []
-    var dataController: DataController!
-    var shoppingList: ShoppingList!
-    var category: GroceryCategory?
-    
     @IBOutlet weak var itemNameTextField: UITextField! {
         didSet {
             itemNameTextField.delegate = self
             itemNameTextField.addTarget(self, action: #selector(AddCategoryViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+            itemNameTextField.becomeFirstResponder()
         }
     }
     @IBOutlet weak var suggestedIconsCollectionView: UICollectionView! {
@@ -43,6 +35,16 @@ class AddCategoryViewController: UIViewController {
             allIconsCollectionView.dataSource = self
         }
     }
+    
+    
+    let allIcons = _GroceryCategory.getFoodIcons()!
+    let sectionTitles = ["Foods", "Hardwares"]
+    var icons: [Int: [String]] = [:]
+    
+    var suggestedIcons : [UIImage] = []
+    var dataController: DataController!
+    var shoppingList: ShoppingList!
+    var category: GroceryCategory?
     
     override func viewWillAppear(_ animated: Bool) {
         suggestionHeightConstraint.constant = 0
@@ -69,6 +71,18 @@ class AddCategoryViewController: UIViewController {
         if let name = itemNameTextField.text, !name.isEmpty {
             createCategory(name: name, imageName: imageName)
             save()
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                guard let self = self else { return }
+                self.view.alpha = 0
+            }) { [weak self]  completed in
+                guard let self = self else { return }
+                if completed {
+                    UIView.animate(withDuration: 0.9) { [weak self] in
+                        guard let self = self else { return }
+                        self.view.alpha = 1
+                    }
+                }
+            }
         } else {
             self.showAlert(with: "", message: "Please enter name for the category", style: .alert)
             return
@@ -83,6 +97,7 @@ class AddCategoryViewController: UIViewController {
         if let name = itemNameTextField.text, !name.isEmpty {
             category?.name = name
             save()
+            self.dismiss(animated: true, completion: nil)
         } else {
             self.showAlert(with: "", message: "Please enter name for the category", style: .alert)
             return
@@ -92,7 +107,7 @@ class AddCategoryViewController: UIViewController {
     func save() {
         do {
             try dataController.viewContext.save()
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
         } catch let error {
             debugPrint(error)
         }

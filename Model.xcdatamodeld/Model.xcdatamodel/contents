@@ -2,31 +2,29 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="GroceryCategory" representedClassName=".GroceryCategory" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="groceryItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroceryItems" inverseName="groceryCategory" inverseEntity="GroceryItems"/>
+        <relationship name="groceryItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroceryItem" inverseName="groceryCategory" inverseEntity="GroceryItem"/>
         <relationship name="shoppingList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingList" inverseName="categories" inverseEntity="ShoppingList"/>
     </entity>
-    <entity name="GroceryItems" representedClassName=".GroceryItems" syncable="YES" codeGenerationType="class">
+    <entity name="GroceryItem" representedClassName=".GroceryItem" syncable="YES" codeGenerationType="class">
         <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="quantity" optional="YES" attributeType="String"/>
+        <attribute name="quantity" optional="YES" attributeType="Decimal" defaultValueString="0"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
         <relationship name="groceryCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryCategory" inverseName="groceryItems" inverseEntity="GroceryCategory"/>
     </entity>
     <entity name="ShoppingList" representedClassName=".ShoppingList" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="reminderSwitch" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="remindOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GroceryCategory" inverseName="shoppingList" inverseEntity="GroceryCategory"/>
     </entity>
     <elements>
-        <element name="GroceryCategory" positionX="-25.3046875" positionY="-481.43359375" width="128" height="133"/>
-        <element name="GroceryItems" positionX="148.390625" positionY="-611.23046875" width="128" height="133"/>
-        <element name="ShoppingList" positionX="305.8125" positionY="-529.82421875" width="128" height="133"/>
+        <element name="GroceryCategory" positionX="-25.3046875" positionY="-481.43359375" width="128" height="118"/>
+        <element name="GroceryItem" positionX="148.390625" positionY="-611.23046875" width="128" height="133"/>
+        <element name="ShoppingList" positionX="305.8125" positionY="-529.82421875" width="128" height="118"/>
     </elements>
 </model>

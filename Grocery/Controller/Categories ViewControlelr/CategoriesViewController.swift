@@ -19,12 +19,21 @@ class CategoriesViewController: UIViewController {
     
     var dataController: DataController!
     var shoppingList: ShoppingList!
-    
     var fetchedResultsController: NSFetchedResultsController<GroceryCategory>!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.title = shoppingList.name
+        setupSearchController()
+        setupFetchedResultsController()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func setupSearchController() {
         self.navigationController?.navigationItem.searchController = searchController
         // 1
         searchController.searchResultsUpdater = self
@@ -38,12 +47,6 @@ class CategoriesViewController: UIViewController {
         definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
-        
-        setupFetchedResultsController()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -57,11 +60,10 @@ class CategoriesViewController: UIViewController {
         request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(shoppingList)-categories")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: shoppingList))-categories")
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
-            print("Items count: \(fetchedResultsController.sections?[0].numberOfObjects ?? 0)")
         } catch let error {
             fatalError("Could not perform fetch: \(error)")
         }
@@ -72,7 +74,9 @@ class CategoriesViewController: UIViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let category = fetchedResultsController.object(at: indexPath)
             guard let destination = segue.destination as? GroceryItemViewController else { return }
+            destination.itemCategory = category
             destination.title = category.name
+            destination.dataController = self.dataController
         } else if segue.identifier == "AddCategory" {
             guard let destination = segue.destination as? AddCategoryViewController else { return }
             destination.dataController = dataController
