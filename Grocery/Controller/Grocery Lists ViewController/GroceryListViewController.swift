@@ -23,9 +23,11 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupSearchController()
         setupFetchedResultsController()
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            filterContentForSearchText(text)
+        }
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
