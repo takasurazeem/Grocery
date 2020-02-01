@@ -26,6 +26,7 @@ class CategoriesViewController: UIViewController {
         
         self.title = shoppingList.name
         setupSearchController()
+        
         setupFetchedResultsController()
         
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -65,7 +66,8 @@ class CategoriesViewController: UIViewController {
         request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(shoppingList)-categories")
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: shoppingList))-categories")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()

@@ -11,8 +11,8 @@ import UIKit
 class AddCategoryViewController: UIViewController {
     
     
-    @IBOutlet weak var btnAdd: UIButton!
-    @IBOutlet weak var btnUpdate: UIButton!
+    @IBOutlet weak var addCategoryButton: UIButton!
+    @IBOutlet weak var updateCategoryButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var itemNameTextField: UITextField! {
@@ -50,8 +50,8 @@ class AddCategoryViewController: UIViewController {
         suggestionHeightConstraint.constant = 0
         icons = [0 : allIcons.food, 1 : allIcons.hardware]
         if let category = category {
-            btnAdd.isHidden = true
-            btnUpdate.isHidden = false
+            addCategoryButton.isHidden = true
+            updateCategoryButton.isHidden = false
             titleLabel.text = "Update Category"
             itemNameTextField.text = category.name
             

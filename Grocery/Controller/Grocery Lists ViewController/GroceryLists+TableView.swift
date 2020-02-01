@@ -95,10 +95,6 @@ extension GroceryListViewController : UITableViewDelegate, UITableViewDataSource
         return configuration
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Complete it
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddShoppingList" {
             guard let destination = segue.destination as? AddShoppingListViewController else { return  }

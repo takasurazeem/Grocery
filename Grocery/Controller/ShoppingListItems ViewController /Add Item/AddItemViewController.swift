@@ -11,11 +11,11 @@ import UIKit
 class AddItemViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var btnUpdate: UIButton!
-    @IBOutlet weak var btnAdd: UIButton!
-    @IBOutlet weak var nameTextfield: UITextField!
-    @IBOutlet weak var textFieldQuantity: DateTextField!
-    @IBOutlet weak var textFieldUnit: DateTextField!
+    @IBOutlet weak var updateItemButton: UIButton!
+    @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet weak var itemNameTextfield: UITextField!
+    @IBOutlet weak var quantityTextField: DateTextField!
+    @IBOutlet weak var unitTextField: DateTextField!
     
     var dataController: DataController!
     var itemCategory: GroceryCategory!
@@ -24,7 +24,7 @@ class AddItemViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupQuantityPicker()
-        btnUpdate.isHidden = true
+        updateItemButton.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -52,26 +52,26 @@ class AddItemViewController: UIViewController {
     }
     
     func reset() {
-        nameTextfield.text = ""
-        textFieldQuantity.text = "0"
+        itemNameTextfield.text = ""
+        quantityTextField.text = "0"
         
     }
     
     func createItem() -> Bool {
         let item = GroceryItem(context: dataController.viewContext)
-        guard let name = nameTextfield.text else {
+        guard let name = itemNameTextfield.text else {
             showAlert(with: "", message: "Please enter item name", style: .alert)
             return false
         }
         item.name = name
         item.category = itemCategory
-        if let quantity = textFieldQuantity.text, !quantity.isEmpty {
+        if let quantity = quantityTextField.text, !quantity.isEmpty {
             item.quantity = NSDecimalNumber(string: quantity)
         } else {
             showAlert(with: "", message: "Please enter a quantity", style: .alert)
             return  false
         }
-        item.unit = textFieldUnit.text
+        item.unit = unitTextField.text
         return true
     }
     
@@ -86,14 +86,14 @@ extension AddItemViewController : UITextFieldDelegate, UIPickerViewDataSource, U
         quantityPicker.delegate = self
         quantityPicker.dataSource = self
         
-        textFieldUnit.text = quantities[0]
-        textFieldUnit.inputView = quantityPicker
+        unitTextField.text = quantities[0]
+        unitTextField.inputView = quantityPicker
         let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(self.quantityPickerDone))
         doneButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let toolBar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 44))
         toolBar.setItems([UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil), doneButton], animated: true)
-        textFieldUnit.inputAccessoryView = toolBar
+        unitTextField.inputAccessoryView = toolBar
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -109,7 +109,7 @@ extension AddItemViewController : UITextFieldDelegate, UIPickerViewDataSource, U
     }
     
     @objc func quantityPickerDone() {
-        textFieldUnit.resignFirstResponder()
+        unitTextField.resignFirstResponder()
     }
     
 }

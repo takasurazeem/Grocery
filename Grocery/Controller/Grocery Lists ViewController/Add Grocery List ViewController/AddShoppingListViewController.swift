@@ -11,11 +11,11 @@ import CoreData
 
 class AddShoppingListViewController: UIViewController {
     
-    @IBOutlet weak var listName: UITextField!
-    @IBOutlet weak var remindOn: UITextField!
+    @IBOutlet weak var listNameTextfField: UITextField!
+    @IBOutlet weak var remindOnTextField: UITextField!
     @IBOutlet weak var reminderSwitch: UISwitch!
-    @IBOutlet weak var btnAdd: UIButton!
-    @IBOutlet weak var btnUpdate: UIButton!
+    @IBOutlet weak var addListButton: UIButton!
+    @IBOutlet weak var updateListButton: UIButton!
     
     var dataController: DataController!
     fileprivate let idKey = "shoppingListId"
@@ -30,12 +30,12 @@ class AddShoppingListViewController: UIViewController {
         super.viewWillAppear(animated)
         setupDatePicker()
         if let shoppingList = shoppingList {
-            btnAdd.isHidden = true
-            listName.text = shoppingList.name
-            remindOn.text = shoppingList.remindOn?.toString(dateFormat: dateFormat)
+            addListButton.isHidden = true
+            listNameTextfField.text = shoppingList.name
+            remindOnTextField.text = shoppingList.remindOn?.toString(dateFormat: dateFormat)
             reminderSwitch.isOn = shoppingList.reminderSwitch
         } else {
-            btnUpdate.isHidden = true
+            updateListButton.isHidden = true
         }
         
     }
@@ -43,7 +43,7 @@ class AddShoppingListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        listName.becomeFirstResponder()
+        listNameTextfField.becomeFirstResponder()
     }
     
     @IBAction func doneButtonPressedListItem(_ sender: UITextField) {
@@ -53,10 +53,10 @@ class AddShoppingListViewController: UIViewController {
     @IBAction func saveShoppingList(_ sender: UIButton) {
         let context = dataController.viewContext
         let shoppingList = ShoppingList(context: context)
-        shoppingList.name = listName.text
+        shoppingList.name = listNameTextfField.text
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        if let dateString = remindOn.text {
+        if let dateString = remindOnTextField.text {
             shoppingList.remindOn = dateFormatter.date(from: dateString)
         }
         shoppingList.reminderSwitch = reminderSwitch.isOn
@@ -70,10 +70,10 @@ class AddShoppingListViewController: UIViewController {
     
     @IBAction func updateList(_ sender: UIButton) {
         let context = dataController.viewContext
-        shoppingList?.name = listName.text
+        shoppingList?.name = listNameTextfField.text
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        if let dateString = remindOn.text {
+        if let dateString = remindOnTextField.text {
             shoppingList?.remindOn = dateFormatter.date(from: dateString)
         }
         shoppingList?.reminderSwitch = reminderSwitch.isOn

@@ -21,7 +21,7 @@ class GroceryItemViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnAddItem: UIButton!
+    @IBOutlet weak var addItemButton: UIButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +37,7 @@ class GroceryItemViewController: UIViewController {
     
     func updateItemsDoneOverTotalItemsLabel() {
         if let items = fetchedResultsController.fetchedObjects {
-            var totalItems = items.count
+            let totalItems = items.count
             if totalItems == 0 {
                 itemsDone.title = ""
                 return
@@ -65,7 +65,8 @@ class GroceryItemViewController: UIViewController {
         request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(itemCategory)-items")
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: itemCategory))-items")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()

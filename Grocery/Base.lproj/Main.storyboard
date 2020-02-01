@@ -96,9 +96,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemImage" destination="E6f-jQ-3iI" id="OXa-Ud-Mcp"/>
-                                            <outlet property="itemName" destination="Iwg-0j-nhr" id="Gis-IA-e1O"/>
-                                            <outlet property="remainingCount" destination="adn-sj-w2G" id="2dT-8T-mVM"/>
+                                            <outlet property="categoryImage" destination="E6f-jQ-3iI" id="OXa-Ud-Mcp"/>
+                                            <outlet property="categoryName" destination="Iwg-0j-nhr" id="Gis-IA-e1O"/>
+                                            <outlet property="remainingItemsCountInCategory" destination="adn-sj-w2G" id="2dT-8T-mVM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -256,7 +256,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FNR-G2-ofL"/>
                     <connections>
-                        <outlet property="btnAddItem" destination="q3f-rq-bBY" id="omb-iH-Ft2"/>
+                        <outlet property="addItemButton" destination="q3f-rq-bBY" id="omb-iH-Ft2"/>
                         <outlet property="tableView" destination="7vK-Za-CX6" id="3Xi-Jd-SsR"/>
                     </connections>
                 </viewController>
@@ -619,11 +619,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="azL-oB-FhL"/>
                     <connections>
-                        <outlet property="btnAdd" destination="79X-ad-4hF" id="ez9-lG-nvi"/>
-                        <outlet property="btnUpdate" destination="KbB-K2-0uk" id="Px9-oD-bih"/>
-                        <outlet property="listName" destination="f0P-98-spz" id="a2G-Gh-cSg"/>
-                        <outlet property="remindOn" destination="VEU-01-n8X" id="FLn-tx-Jgm"/>
+                        <outlet property="addListButton" destination="79X-ad-4hF" id="ez9-lG-nvi"/>
+                        <outlet property="listNameTextfField" destination="f0P-98-spz" id="a2G-Gh-cSg"/>
+                        <outlet property="remindOnTextField" destination="VEU-01-n8X" id="FLn-tx-Jgm"/>
                         <outlet property="reminderSwitch" destination="y7r-MC-xsH" id="rb5-9Q-IKg"/>
+                        <outlet property="updateListButton" destination="KbB-K2-0uk" id="Px9-oD-bih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkk-ea-dAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -839,13 +839,13 @@
                         <viewLayoutGuide key="safeArea" id="V16-Gv-7hM"/>
                     </view>
                     <connections>
+                        <outlet property="addCategoryButton" destination="VmS-Rb-QFW" id="Sq8-ZP-nbN"/>
                         <outlet property="allIconsCollectionView" destination="Rap-01-9hb" id="M1S-QL-GOH"/>
-                        <outlet property="btnAdd" destination="VmS-Rb-QFW" id="Sq8-ZP-nbN"/>
-                        <outlet property="btnUpdate" destination="EJA-g8-5tD" id="Wpn-a9-qRg"/>
                         <outlet property="itemNameTextField" destination="g8s-jZ-PuF" id="XkY-qz-Obz"/>
                         <outlet property="suggestedIconsCollectionView" destination="e2g-Wi-YLH" id="R2I-nO-2Xu"/>
                         <outlet property="suggestionHeightConstraint" destination="pEK-6g-Dk9" id="oTm-SO-2tj"/>
                         <outlet property="titleLabel" destination="Nbn-c9-hmt" id="opH-Jm-B4F"/>
+                        <outlet property="updateCategoryButton" destination="EJA-g8-5tD" id="Wpn-a9-qRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMJ-3w-t1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,12 +991,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="npE-qL-Du6"/>
                     <connections>
-                        <outlet property="btnAdd" destination="ooO-3z-9r1" id="VAJ-cN-khl"/>
-                        <outlet property="btnUpdate" destination="k9u-LG-7qj" id="Nmo-3V-7A5"/>
-                        <outlet property="nameTextfield" destination="MQa-Ee-7Aa" id="Rko-Hj-bC7"/>
-                        <outlet property="textFieldQuantity" destination="55T-Pn-CQK" id="BgI-L8-mif"/>
-                        <outlet property="textFieldUnit" destination="N1c-TF-P47" id="vGn-cY-YSe"/>
+                        <outlet property="addItemButton" destination="ooO-3z-9r1" id="VAJ-cN-khl"/>
+                        <outlet property="itemNameTextfield" destination="MQa-Ee-7Aa" id="Rko-Hj-bC7"/>
+                        <outlet property="quantityTextField" destination="55T-Pn-CQK" id="BgI-L8-mif"/>
                         <outlet property="titleLabel" destination="jeX-ft-t9f" id="aFJ-Wq-7ze"/>
+                        <outlet property="unitTextField" destination="N1c-TF-P47" id="vGn-cY-YSe"/>
+                        <outlet property="updateItemButton" destination="k9u-LG-7qj" id="Nmo-3V-7A5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaA-51-BCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

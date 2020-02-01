@@ -13,24 +13,24 @@ extension AddShoppingListViewController : UITextFieldDelegate {
     func setupDatePicker() {
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200))
         datePicker.minimumDate = Date()
-        remindOn.text = "\(datePicker.date.toString(dateFormat: dateFormat))"
+        remindOnTextField.text = "\(datePicker.date.toString(dateFormat: dateFormat))"
         datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
-        remindOn.inputView = datePicker
+        remindOnTextField.inputView = datePicker
         let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(self.datePickerDone))
         doneButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let toolBar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 44))
         toolBar.setItems([UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil), doneButton], animated: true)
-        remindOn.inputAccessoryView = toolBar
+        remindOnTextField.inputAccessoryView = toolBar
     }
     
     
     @objc func datePickerDone() {
-        remindOn.resignFirstResponder()
+        remindOnTextField.resignFirstResponder()
     }
     
     @objc func dateChanged() {
-        remindOn.text = "\(datePicker.date.toString(dateFormat: dateFormat))"
+        remindOnTextField.text = "\(datePicker.date.toString(dateFormat: dateFormat))"
     }
     
 }

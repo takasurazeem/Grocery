@@ -9,14 +9,16 @@
 import UIKit
 import CoreData
 
-class GroceryListViewController: UIViewController {
+class GroceryListViewController: UIViewController, UISearchControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
     var dataController: DataController!
     let cellIdentifier = "ShoppingListsCell"
     
+    
     var fetchedResultsController: NSFetchedResultsController<ShoppingList>!
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +36,7 @@ class GroceryListViewController: UIViewController {
         self.navigationController?.navigationItem.searchController = searchController
         // 1
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
@@ -42,16 +45,15 @@ class GroceryListViewController: UIViewController {
         navigationItem.searchController = searchController
         // 5
         definesPresentationContext = true
-        
         navigationItem.hidesSearchBarWhenScrolling = true
-
     }
     
     func setupFetchedResultsController() {
         let request : NSFetchRequest<ShoppingList> = ShoppingList.fetchRequest()
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)
         request.sortDescriptors = [sort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "ShoppingLists")
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "ShoppingLists")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -70,6 +72,49 @@ class GroceryListViewController: UIViewController {
         fetchedResultsController = nil
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO: Complete it
+        let searchText = searchController.searchBar.text ?? ""
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+            NSFetchedResultsController<ShoppingList>.deleteCache(withName: "ShoppingList")
+            predicate = NSPredicate(format: "name contains[c] %@", searchText)
+        } else {
+            predicate = nil
+        }
+        
+        fetchedResultsController.fetchRequest.predicate = predicate
+        
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
+        if let objects = fetchedResultsController.fetchedObjects {
+            for o in objects {
+                print(o.name!)
+            }
+        }
+    }
+    
+    func filterContentForSearchText(_ searchTerm: String) {
+        print(searchTerm)
+        var predicate: NSPredicate?
+        if searchTerm.count > 0 {
+//            predicate = NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)", searchText, searchText)
+            predicate = NSPredicate(format: "name CONTAINS[c] %@", searchTerm)
+        } else {
+            predicate = nil
+        }
+        fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
+    }
 }
 
 //MARK: Core Data Section
@@ -92,7 +137,7 @@ extension GroceryListViewController : NSFetchedResultsControllerDelegate {
         case .update:
             tableView.reloadRows(at: [indexPath!], with: .fade)
         default:
-            break
+            tableView.reloadData()
         }
     }
 }
