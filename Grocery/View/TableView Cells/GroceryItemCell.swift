@@ -24,13 +24,13 @@ class GroceryItemCell: UITableViewCell {
         
         if item.completed {
             completedIcon.image = #imageLiteral(resourceName: "check-mark.png")
-            let color = #colorLiteral(red: 0.8879938472, green: 0.8879938472, blue: 0.8879938472, alpha: 1)
-            itemName.textColor = color
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
-            let range = NSMakeRange(0, attributeString.length)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: range)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), range: range)
-            itemName.attributedText = attributeString
+//            let color = #colorLiteral(red: 0.8879938472, green: 0.8879938472, blue: 0.8879938472, alpha: 1)
+//            itemName.textColor = color
+//            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+//            let range = NSMakeRange(0, attributeString.length)
+//            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: range)
+//            attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), range: range)
+//            itemName.attributedText = attributeString
         }
     }
 

@@ -28,11 +28,38 @@ class GroceryItemViewController: UIViewController {
         super.viewWillAppear(animated)
         setupFetchedResultsController()
         setupSearchController()
+        
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            filterContentForSearchText(text)
+        }
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
         updateItemsDoneOverTotalItemsLabel()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO: Complete it
+        let searchText = searchController.searchBar.text ?? ""
+        filterContentForSearchText(searchText)
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+            predicate = NSPredicate(format: "category == %@ AND name contains[c] %@", itemCategory ,searchText)
+        } else {
+            predicate = NSPredicate(format: "category == %@", itemCategory)
+        }
+        fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
     }
     
     func updateItemsDoneOverTotalItemsLabel() {
@@ -65,7 +92,7 @@ class GroceryItemViewController: UIViewController {
         request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: itemCategory))-items")
+        //        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: itemCategory))-items")
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {

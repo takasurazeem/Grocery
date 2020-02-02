@@ -26,8 +26,11 @@ class CategoriesViewController: UIViewController {
         
         self.title = shoppingList.name
         setupSearchController()
-        
         setupFetchedResultsController()
+        
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            filterContentForSearchText(text)
+        }
         
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
@@ -54,6 +57,28 @@ class CategoriesViewController: UIViewController {
         
         navigationItem.hidesSearchBarWhenScrolling = true
     }
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO: Complete it
+        let searchText = searchController.searchBar.text ?? ""
+        filterContentForSearchText(searchText)
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+//            NSPredicate(format: "shoppingList == %@", shoppingList)
+            predicate = NSPredicate(format: "shoppingList == %@ AND name contains[c] %@", shoppingList ,searchText)
+        } else {
+            predicate = NSPredicate(format: "shoppingList == %@", shoppingList)
+        }
+        fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -66,7 +91,7 @@ class CategoriesViewController: UIViewController {
         request.predicate = predicate
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         request.sortDescriptors = [sort]
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: shoppingList))-categories")
+        //        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: shoppingList))-categories")
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {
@@ -116,5 +141,5 @@ extension CategoriesViewController : NSFetchedResultsControllerDelegate {
             break
         }
     }
-
+    
 }

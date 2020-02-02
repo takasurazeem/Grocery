@@ -10,10 +10,6 @@ import UIKit
 
 extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }

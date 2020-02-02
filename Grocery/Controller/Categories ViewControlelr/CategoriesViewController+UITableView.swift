@@ -58,10 +58,4 @@ extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate,
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
-    
-    
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Complete it
-    }
 }

@@ -75,8 +75,11 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Complete it
         let searchText = searchController.searchBar.text ?? ""
+        filterContentForSearchText(searchText)
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
         var predicate: NSPredicate?
         if searchText.count > 0 {
             NSFetchedResultsController<ShoppingList>.deleteCache(withName: "ShoppingList")
@@ -85,30 +88,6 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
             predicate = nil
         }
         
-        fetchedResultsController.fetchRequest.predicate = predicate
-        
-        do {
-            try fetchedResultsController.performFetch()
-            tableView.reloadData()
-        } catch let err {
-            print(err)
-        }
-        if let objects = fetchedResultsController.fetchedObjects {
-            for o in objects {
-                print(o.name!)
-            }
-        }
-    }
-    
-    func filterContentForSearchText(_ searchTerm: String) {
-        print(searchTerm)
-        var predicate: NSPredicate?
-        if searchTerm.count > 0 {
-//            predicate = NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)", searchText, searchText)
-            predicate = NSPredicate(format: "name CONTAINS[c] %@", searchTerm)
-        } else {
-            predicate = nil
-        }
         fetchedResultsController.fetchRequest.predicate = predicate
         do {
             try fetchedResultsController.performFetch()
