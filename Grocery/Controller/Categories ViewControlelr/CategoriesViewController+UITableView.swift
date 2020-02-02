@@ -51,6 +51,7 @@ extension CategoriesViewController : UITableViewDataSource, UITableViewDelegate,
         }
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+
         
         return configuration
     }

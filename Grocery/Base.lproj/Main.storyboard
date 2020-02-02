@@ -855,7 +855,7 @@
         <!--Add Item View Controller-->
         <scene sceneID="YWb-Zr-XtN">
             <objects>
-                <viewController id="GtH-A4-JQz" customClass="AddItemViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddItemViewController" id="GtH-A4-JQz" customClass="AddItemViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eOX-9j-gE2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -888,6 +888,9 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="updateButtonPressed:" destination="GtH-A4-JQz" eventType="touchUpInside" id="627-gc-OMZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooO-3z-9r1">
                                                 <rect key="frame" x="304" y="0.0" width="70" height="40"/>
@@ -906,7 +909,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnAddPressed:" destination="GtH-A4-JQz" eventType="touchUpInside" id="oaq-Hv-Ac8"/>
+                                                    <action selector="addButtonPressed:" destination="GtH-A4-JQz" eventType="touchUpInside" id="oaq-Hv-Ac8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -996,7 +999,7 @@
                         <outlet property="quantityTextField" destination="55T-Pn-CQK" id="BgI-L8-mif"/>
                         <outlet property="titleLabel" destination="jeX-ft-t9f" id="aFJ-Wq-7ze"/>
                         <outlet property="unitTextField" destination="N1c-TF-P47" id="vGn-cY-YSe"/>
-                        <outlet property="updateItemButton" destination="k9u-LG-7qj" id="Nmo-3V-7A5"/>
+                        <outlet property="updateItemButton" destination="k9u-LG-7qj" id="0DA-3S-jWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaA-51-BCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

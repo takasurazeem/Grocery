@@ -21,10 +21,23 @@ class AddItemViewController: UIViewController {
     var itemCategory: GroceryCategory!
     var quantityPicker: UIPickerView!
     
+    var itemToUpdate: GroceryItem?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupQuantityPicker()
         updateItemButton.isHidden = true
+        
+        if let item = itemToUpdate {
+            titleLabel.text = "Update Item"
+            
+            itemNameTextfield.text = item.name
+            quantityTextField.text = "\(item.quantity!)"
+            unitTextField.text = item.unit
+            
+            addItemButton.isHidden = true
+            updateItemButton.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
@@ -36,12 +49,20 @@ class AddItemViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    @IBAction func btnAddPressed(_ sender: UIButton) {
-        if createItem() {
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        if validate() {
+            createItem()
             save()
         }
     }
     
+    @IBAction func updateButtonPressed(_ sender: Any) {
+        if validate() {
+            updateItem()
+            save()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     func save() {
         do {
             try dataController.viewContext.save()
@@ -51,29 +72,42 @@ class AddItemViewController: UIViewController {
         }
     }
     
+    func updateItem() {
+        guard let item = itemToUpdate else { return }
+        item.unit = unitTextField.text
+        item.name = itemNameTextfield.text
+        item.quantity = NSDecimalNumber(string: quantityTextField.text!)
+    }
+    
     func reset() {
         itemNameTextfield.text = ""
-        quantityTextField.text = "0"
+        itemNameTextfield.becomeFirstResponder()
+        quantityTextField.text = "1"
         
     }
     
-    func createItem() -> Bool {
-        let item = GroceryItem(context: dataController.viewContext)
-        guard let name = itemNameTextfield.text else {
+    func validate() -> Bool {
+        guard itemNameTextfield.text != nil else {
             showAlert(with: "", message: "Please enter item name", style: .alert)
             return false
         }
-        item.name = name
-        item.category = itemCategory
-        if let quantity = quantityTextField.text, !quantity.isEmpty {
-            item.quantity = NSDecimalNumber(string: quantity)
-        } else {
+        
+        guard itemNameTextfield.text != nil else {
             showAlert(with: "", message: "Please enter a quantity", style: .alert)
             return  false
         }
-        item.unit = unitTextField.text
         return true
     }
+    
+    func createItem() {
+        let item = GroceryItem(context: dataController.viewContext)
+        item.unit = unitTextField.text
+        item.name = itemNameTextfield.text
+        item.category = itemCategory
+        item.quantity = NSDecimalNumber(string: quantityTextField.text!)
+    }
+    
+    
     
     var quantities = ["kg", "grams", "size", "pc", "liter"]
     
@@ -106,6 +140,10 @@ extension AddItemViewController : UITextFieldDelegate, UIPickerViewDataSource, U
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return quantities[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        unitTextField.text = quantities[row]
     }
     
     @objc func quantityPickerDone() {

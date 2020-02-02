@@ -39,6 +39,30 @@ extension GroceryItemViewController : UITableViewDelegate, UITableViewDataSource
         
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completion) in
+            guard let self = self else { return }
+            let itemToDelete = self.fetchedResultsController.object(at: indexPath)
+            self.dataController.viewContext.delete(itemToDelete)
+            self.save()
+            completion(true)
+        }
+        
+        
+        let update = UIContextualAction(style: .normal, title: "Update") { [weak self] (action, view, completion) in
+            guard let self = self else { return }
+            guard let destination = self.storyboard?.instantiateViewController(identifier: "AddItemViewController") as? AddItemViewController else { return }
+            let itemToUpdate = self.fetchedResultsController.object(at: indexPath)
+            destination.itemToUpdate = itemToUpdate
+            destination.dataController = self.dataController
+            destination.itemCategory = self.itemCategory
+            self.present(destination, animated: true, completion: nil)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [delete, update])
+    }
+    
     func save() {
         do {
             try dataController.viewContext.save()
