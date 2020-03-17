@@ -11,6 +11,7 @@ import CoreData
 
 class AddShoppingListViewController: UIViewController {
     
+    @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var listNameTextfField: UITextField!
     @IBOutlet weak var remindOnTextField: UITextField!
     @IBOutlet weak var reminderSwitch: UISwitch!

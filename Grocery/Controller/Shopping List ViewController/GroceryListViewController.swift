@@ -16,6 +16,27 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
     var dataController: DataController!
     let cellIdentifier = "ShoppingListsCell"
     
+    enum CardState {
+        case expanded
+        case collapsed
+    }
+    
+    var cardViewController : AddShoppingListViewController!
+    var visualEffectView : UIVisualEffectView!
+    
+    lazy var cardHeight = {
+        return self.view.frame.height * 0.90
+    }()
+    
+    let cardHandleAreaHeight : CGFloat = 0
+    
+    var cardVisible = false
+    var nextState : CardState {
+        return cardVisible ? .collapsed : .expanded
+    }
+    
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressWhenInterrupted : CGFloat = 0
     
     var fetchedResultsController: NSFetchedResultsController<ShoppingList>!
     
@@ -28,10 +49,14 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
         if let text = searchController.searchBar.text, !text.isEmpty {
             filterContentForSearchText(text)
         }
+        
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
+        
+        visualEffectView.isUserInteractionEnabled = false
     }
 
     func setupSearchController() {
@@ -67,6 +92,7 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        setupCard()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -96,6 +122,13 @@ class GroceryListViewController: UIViewController, UISearchControllerDelegate {
             print(err)
         }
     }
+    
+    @IBAction func addShoppingList(_ sender: UIButton) {
+        animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        // IMPORTANT!!!
+        visualEffectView.isUserInteractionEnabled = true
+    }
+    
 }
 
 //MARK: Core Data Section

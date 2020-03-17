@@ -428,10 +428,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="bOn-Py-VJs" kind="presentation" identifier="AddShoppingList" id="zoz-EP-4oq">
-                                        <segue key="commit" inheritsFrom="parent" id="Zvq-aR-OdO"/>
-                                        <segue key="preview" inheritsFrom="commit" id="xXp-ay-PKT"/>
-                                    </segue>
+                                    <action selector="addShoppingList:" destination="iIu-jl-qQ1" eventType="touchUpInside" id="96Y-fj-cD2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -463,11 +460,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddShoppingListViewController" id="bOn-Py-VJs" customClass="AddShoppingListViewController" customModule="Grocery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WZg-zW-6zo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="boI-3Z-JDs" userLabel="Form">
-                                <rect key="frame" x="20" y="16" width="374" height="269.5"/>
+                                <rect key="frame" x="20" y="60" width="374" height="269.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-Qt-hip">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
@@ -1017,6 +1014,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kt3-4K-tYX"/>
-        <segue reference="zoz-EP-4oq"/>
     </inferredMetricsTieBreakers>
 </document>
