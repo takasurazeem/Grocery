@@ -27,6 +27,7 @@ Groc is a grocery application I decided to create  to remove some rust from my d
 - [x] Create Category
 - [x] Add Item
 - [x] Mark as completed
+- [ ] Local notifications on selected date and time as list is added/created/updated.
 
 ## TODO
 - [ ] Fix some bugs when marking items as complete.
