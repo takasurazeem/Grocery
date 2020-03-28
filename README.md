@@ -54,7 +54,7 @@ Takasur Azeem â€“ (Twitter) [@takasurazeem](https://twitter.com/takasurazeem) â€
 
 Distributed under the MIT license.
 
-[https://github.com/yourname/github-link](https://github.com/takasurazeem/)
+[https://github.com/takasurazeem](https://github.com/takasurazeem/)
 
 [swift-image]:swift-5.0-orange.svg
 [swift-url]: https://swift.org/
