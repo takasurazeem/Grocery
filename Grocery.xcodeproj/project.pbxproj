@@ -82,6 +82,7 @@
 		769566FD24213779007FDCA0 /* ShoppingLists+CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingLists+CardView.swift"; sourceTree = "<group>"; };
 		769B632523C72BD000970F6D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		769B632823C733FF00970F6D /* AddShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListViewController.swift; sourceTree = "<group>"; };
+		76B013B7242F5E7000C5ADDA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		76B06B9A23C08BC80078D517 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		76B088ED23C3CF3200A9B6DB /* AllIconsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIconsSectionHeader.swift; sourceTree = "<group>"; };
 		76B088F523C3D4BC00A9B6DB /* SuggestedIconsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedIconsSectionHeader.swift; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 		76BC5A8623BFC3CA008842AE = {
 			isa = PBXGroup;
 			children = (
+				76B013B7242F5E7000C5ADDA /* README.md */,
 				76697AA423CC4847006728C5 /* Model.xcdatamodeld */,
 				76BC5A9123BFC3CA008842AE /* Grocery */,
 				76BC5A9023BFC3CA008842AE /* Products */,

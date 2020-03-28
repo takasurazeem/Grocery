@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKL-ic-JRE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKL-ic-JRE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -276,7 +276,10 @@
                         <color key="barTintColor" red="0.1449987888" green="0.14463511109999999" blue="0.1694982052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -286,7 +289,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNQ-Q2-95q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875" y="110"/>
+            <point key="canvasLocation" x="-613" y="110"/>
         </scene>
         <!--Shopping Lists-->
         <scene sceneID="tc6-2V-EE1">
@@ -453,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlI-za-NeY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="110"/>
+            <point key="canvasLocation" x="167" y="110"/>
         </scene>
         <!--Add Shopping List View Controller-->
         <scene sceneID="avE-EC-0h8">
@@ -1004,15 +1007,15 @@
             <point key="canvasLocation" x="1755" y="832"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="041-carrot" width="512" height="512"/>
-        <image name="add-icon" width="256" height="256"/>
-        <image name="arrow.right" catalog="system" width="64" height="48"/>
-        <image name="bell.circle" catalog="system" width="64" height="60"/>
-        <image name="circle-shape-outline" width="128" height="128"/>
-        <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kt3-4K-tYX"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="041-carrot" width="512" height="512"/>
+        <image name="add-icon" width="256" height="256"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="bell.circle" catalog="system" width="128" height="121"/>
+        <image name="circle-shape-outline" width="128" height="128"/>
+        <image name="pencil.and.outline" catalog="system" width="128" height="119"/>
+    </resources>
 </document>
