@@ -9,68 +9,50 @@
 
 Groc is a grocery application I decided to create  to remove some rust from my development skills after I had started doing my MS in Software Engineering. It is currenly CoreData based, and will Firebase support will be added later.
 
-![](header.png)
+#### Screenshots
+<table>
+  <tr>
+    <td><img src="screenshots/1st.png" width=300 height=480></td>
+    <td><img src="screenshots/2nd.png" width=300 height=480></td>
+    <td><img src="screenshots/3rd.png" width=300 height=480></td>
+    <td><img src="screenshots/4th.png" width=300 height=480></td>
+    <td><img src="screenshots/5th.png" width=300 height=480></td>
+    <td><img src="screenshots/6th.png" width=300 height=480></td>
+  </tr>
+ </table>
 
 ## Features
 
-- [x] Feature 1
-- [x] Feature 2
-- [x] Feature 3
-- [x] Feature 4
-- [x] Feature 5
+- [x] Create List
+- [x] Create Category
+- [x] Add Item
+- [x] Mark as completed
+
+## TODO
+- [ ] Fix some bugs when marking items as complete.
+- [ ] Add firebase support.
+- [ ] Improve UI/UX.
+- [ ] Add missing/more icons.
+- [ ] Store entered categories/items names and show them as suggestions.
+- [ ] Add freestyle unit text field for custom units.
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 7.3
-
-## Installation
-
-#### CocoaPods
-You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
-
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-pod 'YourLibrary'
-```
-
-To get the full benefits import `YourLibrary` wherever you import UIKit
-
-``` swift
-import UIKit
-import YourLibrary
-```
-#### Carthage
-Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/YourLibrary.framework` to an iOS project.
-
-```
-github "yourUsername/yourlibrary"
-```
-#### Manually
-1. Download and drop ```YourLibrary.swift``` in your project.  
-2. Congratulations!  
-
-## Usage example
-
-```swift
-import EZSwiftExtensions
-ez.detectScreenShot { () -> () in
-    print("User took a screen shot")
-}
-```
+- iOS 13.0
+- Xcode 11.3
 
 ## Contribute
 
-We would love you for the contribution to **YourLibraryName**, check the ``LICENSE`` file for more info.
+I would love you for the contribution to Groc.
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Takasur Azeem – (Twitter) [@takasurazeem](https://twitter.com/takasurazeem) – takasurazeem@gmail.com
+(Telegram) [@takasur](https://t.me/takasur)
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the MIT license.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/yourname/github-link](https://github.com/takasurazeem/)
 
 [swift-image]:swift-5.0-orange.svg
 [swift-url]: https://swift.org/
