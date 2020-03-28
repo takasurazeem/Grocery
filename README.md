@@ -7,7 +7,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Groc is a grocery application I decided to create  to remove some rust from my development skills after I had started doing my MS in Software Engineering. It is currenly CoreData based, and Firebase support will be added later.
+Groc is a grocery application I decided to create  to remove some rust from my development skills after I had started doing my MS in Software Engineering. It is currently CoreData based, and Firebase support will be added later.
 
 #### Screenshots
 <table>
@@ -35,6 +35,7 @@ Groc is a grocery application I decided to create  to remove some rust from my d
 - [ ] Add missing/more icons.
 - [ ] Store entered categories/items names and show them as suggestions.
 - [ ] Add freestyle unit text field for custom units.
+- [ ] Add generics wherever possible. (code)
 
 ## Requirements
 
