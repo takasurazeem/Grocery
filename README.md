@@ -45,7 +45,7 @@ Groc is a grocery application I decided to create  to remove some rust from my d
 
 ## Contribute
 
-I would love you for the contribution to Groc.
+I would love your contributions to Groc.
 
 ## Meta
 
