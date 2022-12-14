@@ -12,12 +12,12 @@ Groc is a grocery application I decided to create  to remove some rust from my d
 #### Screenshots
 <table>
   <tr>
-    <td><img src="screenshots/1st.png" width=680 height=480></td>
-    <td><img src="screenshots/2nd.png" width=680 height=480></td>
-    <td><img src="screenshots/3rd.png" width=680 height=480></td>
-    <td><img src="screenshots/4th.png" width=680 height=480></td>
-    <td><img src="screenshots/5th.png" width=680 height=480></td>
-    <td><img src="screenshots/6th.png" width=680 height=480></td>
+    <td><img src="screenshots/1st.png" width=100% height=100%></td>
+    <td><img src="screenshots/2nd.png" width=100% height=100%></td>
+    <td><img src="screenshots/3rd.png" width=100% height=100%></td>
+    <td><img src="screenshots/4th.png" width=100% height=100%></td>
+    <td><img src="screenshots/5th.png" width=100% height=100%></td>
+    <td><img src="screenshots/6th.png" width=100% height=100%></td>
   </tr>
  </table>
 
